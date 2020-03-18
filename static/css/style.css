@@ -100,6 +100,11 @@ Login/Signup modal window - by CodyHouse.co
   color: #2f889a;
 }
 
+.page-title {
+    float: left;
+}
+
+
 .main-nav {
   float: right;
   margin-right: 5%;
