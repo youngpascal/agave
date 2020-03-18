@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Agave Wallet</title>
+    
+  <!-- Fill in Meta stuff later -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- Scott's stuff -->
+  <link rel="stylesheet" href="static/css/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="static/css/style.css"> <!-- Resource style -->
+  <link rel="stylesheet" href="static/css/app.css"> <!-- Demo style -->
+    
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+    
+  <!-- JS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="static/js/app.js"></script>
+  <script src="static/js/util.js"></script> 
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+        
+      <div class="three columns side-nav">
+        <div class="main-header_logo"><a href="#"><img src="static/img/agave.png" alt="Logo"></a></div>  
+
+        <ul>
+            <li>
+                <button class="nav-button">Overview</button>
+            </li>
+            <li>
+                <button class="nav-button">Create Assets</button>
+            </li>
+            <li>
+                <button class="nav-button">Contact Us</button>
+            </li>
+            <li>
+                <button class="nav-button">Whatever Else</button>
+            </li>
+        </ul>
+      </div>
+        
+      <div class="nine columns">
+          
+        <header class="main-header">
+            <!-- <nav class="main-nav main-nav js-main-nav" id="navout"> -->
+            <nav class="main-nav js-main-nav" id="navin">
+                <ul class="main-nav__list js-signin-modal-trigger" id="navin">
+                        <!-- inser more links here -->
+                        <li><a class="main-nav__item">
+                            <div id="address" class="address"></div>
+                        </a></li>
+                        <li><a class="button main-nav__item main-nav__item--signin" href="/" id ='signout'>Sign Out</a></li>
+                </ul>
+            </nav>   
+            <!-- <nav class="main-nav main-nav--hidden js-main-nav" id="navout"> -->
+            <nav class="main-nav js-main-nav" id="navout">
+                <ul class="main-nav__list js-signin-modal-trigger" id="navout">
+                    <li><a class="main-nav__item" style="padding-left: 2%">
+                        <select class="button main-nav__item main-nav__item--dropdown" name="networks" id="networks">
+                            <option value="peercoin">Peercoin</option>
+                            <option value="peercoinTestnet">Peercoin Testnet</option>
+                            <option value="bitcoin">Bitcoin</option>
+                            <option value="bitcoinTestnet">Bitcoin Testnet</option>
+                        </select>
+                    </a></li>
+                    <li><a class="button main-nav__item main-nav__item--signin" href="#0" data-signin="login">Sign In</a></li>
+                    <li><a class="button main-nav__item main-nav__item--signup" href="#0" data-signin="signup" id="newAccount">New Account</a></li>
+                </ul>
+        </nav>
+            
+        </header>  
+          
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Sex</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dave Gamache</td>
+              <td>26</td>
+              <td>Male</td>
+              <td>San Francisco</td>
+            </tr>
+            <tr>
+              <td>Dwayne Johnson</td>
+              <td>42</td>
+              <td>Male</td>
+              <td>Hayward</td>
+            </tr>
+          </tbody>
+        </table>
+          
+          
+        <!-- <nav class="main-nav main-nav--hidden js-main-nav" id="navin"> -->
+        
+          
+      </div>
+        
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
