@@ -92,16 +92,37 @@ Login/Signup modal window - by CodyHouse.co
 }
 
 .address{
-  color: white;
-  padding: 5%;
+    color: white;
+    padding: 5%;
+    position: inline;
+    text-align: center;
+    font-size: 1em;
+
+}
+
+.address img {
+    height: 3vh;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.address a {
+    color:white;
 }
 
 .address:hover{
-  color: #2f889a;
+    color: #2f889a;
 }
 
 .page-title {
     float: left;
+    color: white;
+    height: 100%;
+    margin-left: 1em;
+    margin-top: .5em;
+    display: inline-block;
+    vertical-align: baseline
+    
 }
 
 
@@ -110,7 +131,6 @@ Login/Signup modal window - by CodyHouse.co
   margin-right: 5%;
   width: 44px;
   height: 100%;
-  background: url("../img/cd-icon-menu.svg") no-repeat center center;
   cursor: pointer;
   display: block;
 }
