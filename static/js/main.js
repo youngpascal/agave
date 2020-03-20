@@ -111,7 +111,7 @@
 		});
 	}
 	function setNav(){
-		var hidden = 'cd-main-nav--hidden'
+		var hidden = 'main-nav--hidden'
 		if (isLoggedIn()){
 			if ( hasClass(mainNav1, hidden) ){
 				removeClass(mainNav1, hidden) }
@@ -134,15 +134,15 @@
 
 	var signout = document.getElementById('signout');
 	signout.addEventListener('click', function(event){
-		toggleClass(mainNav2, 'cd-main-nav--hidden', !hasClass(mainNav2, 'cd-main-nav--hidden'));
-		toggleClass(mainNav1, 'cd-main-nav--hidden', !hasClass(mainNav1, 'cd-main-nav--hidden'));
+		toggleClass(mainNav2, 'main-nav--hidden', !hasClass(mainNav2, 'main-nav--hidden'));
+		toggleClass(mainNav1, 'main-nav--hidden', !hasClass(mainNav1, 'main-nav--hidden'));
 
 	})
 
 	var signin = document.getElementById('signin');
 	signout.addEventListener('click', function(event){
-		toggleClass(mainNav2, 'cd-main-nav--hidden', !hasClass(mainNav2, 'cd-main-nav--hidden'));
-		toggleClass(mainNav1, 'cd-main-nav--hidden', !hasClass(mainNav1, 'cd-main-nav--hidden'));
+		toggleClass(mainNav2, 'main-nav--hidden', !hasClass(mainNav2, 'main-nav--hidden'));
+		toggleClass(mainNav1, 'main-nav--hidden', !hasClass(mainNav1, 'main-nav--hidden'));
 
 	})
 

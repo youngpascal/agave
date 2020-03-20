@@ -50,26 +50,20 @@
 
         <!-- Navout stuff-->
         <!-- <nav class="main-nav main-nav--hidden js-main-nav" id="navout"> -->
-        <div class="side-nav main-nav js-main-nav js-signin-modal-trigger" id="navout">
+        <nav class="side-nav main-nav main-nav--hidden js-main-nav" id="navout">
             <!-- <ul class="main-nav__list js-signin-modal-trigger" id="navout"> -->
-            <select class="option-button main-nav__item main-nav__item--dropdown" name="networks" id="networks">
-                <option value="peercoin">Peercoin</option>
-                <option value="peercoinTestnet">Peercoin Testnet</option>
-                <option value="bitcoin">Bitcoin</option>
-                <option value="bitcoinTestnet">Bitcoin Testnet</option>
-            </select>
             <button class="option-button main-nav__item main-nav__item--signin" href="#0" data-signin="login">Sign In</button>
             <button class="option-button main-nav__item main-nav__item--signup" href="#0" data-signin="signup" id="newAccount">New Account</button>
             
             <!-- </ul> -->
-        </div>
+        </nav>
         <!-- <nav class="main-nav main-nav js-main-nav" id="navout"> -->
         
         <!-- Navin stuff -->
-        <nav class="main-nav js-main-nav js-signin-modal-trigger" id="navin">
+        <nav class="main-nav main-nav--hidden js-main-nav" id="navin">
 
             <a class="main-nav__item">
-                <div id="address" class="address">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</div>
+                <div id="address" class="address"></div>
             </a>
             
             <button class="option-button main-nav__item main-nav__item--signin" href="/" id ='signout'>Sign Out</button>
@@ -89,17 +83,6 @@
             <a href="https://github.com/PeerAssets/">Powered by PeerAssets</a>   
         </nav> 
           
-      </div>
-        
-      <div class="nine columns">
-        
-          
-        <header class="page-title">
-                <h1>Portfolio</h1>
-        </header>  
-          
-        <!-- <nav class="main-nav main-nav--hidden js-main-nav" id="navin"> -->
-        
         <div class="cd-signin-modal js-signin-modal" id="signin-modal"> <!-- this is the entire modal form, including the background -->
             <div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
                 <ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
@@ -109,6 +92,14 @@
 
                 <div class="cd-signin-modal__block js-signin-modal-block" data-type="login"> <!-- log in form -->
                     <form class="cd-signin-modal__form" id="form-signin" onsubmit="setNav()" action="/">
+                        
+                        <select class="option-button main-nav__item main-nav__item--dropdown" name="networks" id="networks">
+                            <option value="peercoin">Peercoin</option>
+                            <option value="peercoinTestnet">Peercoin Testnet</option>
+                            <option value="bitcoin">Bitcoin</option>
+                            <option value="bitcoinTestnet">Bitcoin Testnet</option>
+                        </select>
+                        
                         <p class="cd-signin-modal__fieldset">
                             <label class="cd-signin-modal__label cd-signin-modal__label--mnemonic cd-signin-modal__label--image-replace" for="mnemonic">12-Word Passphrase</label>
                             <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-border" id="passphrase1" type="text" placeholder="12-Word Passphrase">
@@ -132,6 +123,14 @@
 
                 <div class="cd-signin-modal__block js-signin-modal-block" data-type="signup"> <!-- sign up form -->
                     <form class="cd-signin-modal__form" id="form-signup" onsubmit="setNav()" action="/" >
+                        
+                        <select class="option-button main-nav__item main-nav__item--dropdown" name="networks" id="networks">
+                            <option value="peercoin">Peercoin</option>
+                            <option value="peercoinTestnet">Peercoin Testnet</option>
+                            <option value="bitcoin">Bitcoin</option>
+                            <option value="bitcoinTestnet">Bitcoin Testnet</option>
+                        </select>
+                        
                         <p class="cd-signin-modal__fieldset">
                             <label class="cd-signin-modal__label cd-signin-modal__label--mnemonic cd-signin-modal__label--image-replace">12-Word Passphrase</label>
                             <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-border" id="passphrase2" type="text" placeholder="12-Word Passphrase">
@@ -156,7 +155,20 @@
                     </form>
                 </div> <!-- cd-signin-modal__block -->
             </div> <!-- cd-signin-modal__container -->
-        </div> <!-- cd-signin-modal -->
+        </div> <!-- cd-signin-modal -->  
+          
+      </div>
+        
+      <div class="nine columns">
+        
+          
+        <header class="page-title">
+                <h1>Portfolio</h1>
+        </header>  
+          
+        <!-- <nav class="main-nav main-nav--hidden js-main-nav" id="navin"> -->
+        
+
 
         <script src="static/js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
         <script src="static/js/main.js"></script> <!-- Resource JavaScript -->  
