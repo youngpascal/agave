@@ -63,12 +63,14 @@ Login/Signup modal window - by CodyHouse.co
 }
 
 .side-nav button {
+    background: linear-gradient(#3A8275, #2a708c);
     display: inline-block;
     margin-bottom: 2vh;
 }
 
-.option-button {
-    width: 70%;
+.side-nav button:hover {
+    background: #2A708C;
+
 }
 
 .main-header {
@@ -183,7 +185,7 @@ Login/Signup modal window - by CodyHouse.co
 }
 
 
-.main-nav__item.main-nav__item--dropdown {
+.cd-main-nav__item.main-nav__item--dropdown {
     border: none;
     outline: none;
     padding-left: 2%;
@@ -191,7 +193,7 @@ Login/Signup modal window - by CodyHouse.co
     font-size: 14;
 }
 
-.main-nav__item.main-nav__item--dropdown option{
+.cd-main-nav__item.main-nav__item--dropdown option{
     color: white;
 }
 
@@ -233,15 +235,15 @@ Login/Signup modal window - by CodyHouse.co
     line-height: normal;
     background: transparent;
   }
-  .main-nav__item.main-nav__item--signin, .main-nav__item.main-nav__item--signup  {
+  .cd-main-nav__item.main-nav__item--signin, .main-nav__item.main-nav__item--signup  {
     /* padding: .6em 1em; */
     border-radius: 50em;
   }
-  .main-nav__item.main-nav__item--signin, .main-nav__item.main-nav__item--signup {
+  .cd-main-nav__item.main-nav__item--signin, .main-nav__item.main-nav__item--signup {
     border: 1px solid rgba(255, 255, 255, 0.6);
   }
 
-  .main-nav__item.main-nav__item--dropdown {
+  .cd-main-nav__item.main-nav__item--dropdown {
     margin: 1vw;
     outline: none;
     padding: 1em;
