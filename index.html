@@ -1,203 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Agave Wallet</title>
-    
-  <!-- Fill in Meta stuff later -->
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agave</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <img src="img/logo.png" alt="trillo logo" class="logo" />
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!-- Scott's stuff -->
-  <link rel="stylesheet" href="static/css/reset.css"> <!-- CSS reset -->
-  <link rel="stylesheet" href="static/css/style.css"> <!-- Resource style -->
-  <link rel="stylesheet" href="static/css/app.css"> <!-- Demo style -->
-    
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-    
-  <!-- JS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script src="static/js/app.js"></script>
-  <script src="static/js/util.js"></script> 
+        <form action="#" class = "search">
+            <input type="text" class = "search__input" placeholder="Search">
+            <button class="search__button">
+                <svg class="search__icon">
+                    <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+                </svg>
+            </button>
+        </form>
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.ico">
-
-</head>
-<body>
-
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-        
-        <!-- Sidenav code -->
-      <div class="three columns side-nav">
-          
-        <img src="static/img/agave.png" alt="Logo">  
-
-        <!-- Navout stuff-->
-        <!-- <nav class="main-nav main-nav--hidden js-main-nav" id="navout"> -->
-        <nav class="main-nav cd-main-nav--hidden js-main-nav" id="navout">
-            <ul class="cd-main-nav__list js-signin-modal-trigger" id="navout">
-                <li>
-                    <button class="option-button cd-main-nav__item cd-main-nav__item--signin" href="#0" data-signin="login">Sign in</button>
-                </li>
-                <li>
-                    <button class="option-button cd-main-nav__item cd-main-nav__item--signup" href="#0" data-signin="signup" id="newAccount">New Account</button>
-                </li>
-            </ul>
+        <nav class="user-nav">
+            <div class="user-nav__icon-box">
+                <svg class="user-nav__icon">
+                    <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                </svg>
+                <!-- <span class="user-nav__notification">7</span> -->
+            </div>
+            <div class="user-nav__icon-box">
+                <svg class="user-nav__icon">
+                    <use xlink:href="img/sprite.svg#icon-key"></use>
+                </svg>
+                <!-- <span class="user-nav__notification">13</span> -->
+            </div>
+            <!-- <div class="user-nav__user">
+                <img src="img/user.jpg" alt="User Photo" class="user-nav__user-photo">
+                <span class="user-nav__user-name">Jonas</span>
+            </div> -->
         </nav>
-        <!-- <nav class="main-nav main-nav js-main-nav" id="navout"> -->
-        
-        <!-- Navin stuff -->
-        <nav class="cd-main-nav cd-main-nav--hidden js-main-nav" id="navin">
-            <ul class="cd-main-nav__list js-signin-modal-trigger" id="navin">
-                <!-- insert more links here -->
-                <li>
-                    <a class="cd-main-nav__item">
-                        <div id="address" class="address"></div>
-                    </a>
-                </li>
-                <li>
-                    <button class="option-button cd-main-nav__item cd-main-nav__item--signin" href="/" id ='signout'>Sign out</button>
-                </li>
-            </ul>
+
+      </header>
+
+
+      <div class="content">
+        <nav class="sidebar">
+          <ul class="side-nav">
+              <li class="side-nav__item side-nav__item--active">
+                  <a href="#" class="side-nav__link">
+                      <svg class="side-nav__icon">
+                          <use xlink:href="img/sprite.svg#icon-menu"></use>
+                      </svg>
+                      <span>Menu</span>
+                  </a>
+              </li>
+              <li class="side-nav__item">
+                  <a href="#" class="side-nav__link">
+                      <svg class="side-nav__icon">
+                          <use xlink:href="img/sprite.svg#icon-home"></use>
+                      </svg>
+                      <span>Overview</span>
+                  </a>
+              </li>
+              <li class="side-nav__item">
+                  <a href="#" class="side-nav__link">
+                      <svg class="side-nav__icon">
+                          <use xlink:href="img/sprite.svg#icon-arrow-long-left"></use>
+                      </svg>
+                      <span>Send</span>
+                  </a>
+              </li>
+              <li class="side-nav__item">
+                  <a href="#" class="side-nav__link">
+                      <svg class="side-nav__icon">
+                          <use xlink:href="img/sprite.svg#icon-star"></use>
+                      </svg>
+                      <span>Transactions</span>
+                  </a>
+              </li>
+              <li class="side-nav__item">
+                  <a href="#" class="side-nav__link">
+                      <svg class="side-nav__icon">
+                          <use xlink:href="img/sprite.svg#icon-download"></use>
+                      </svg>
+                      <span>Mining</span>
+                  </a>
+              </li>
+              <li class="side-nav__item">
+                  <a href="#" class="side-nav__link">
+                      <svg class="side-nav__icon">
+                          <use xlink:href="img/sprite.svg#icon-address"></use>
+                      </svg>
+                      <span>Addresses</span>
+                  </a>
+              </li>
+          </ul>
+
+          <div class="legal">
+              &copy; 2020 Agave 
+          </div>
         </nav>
-          
-        <!-- Nav buttons -->
-        <button class="nav-button">Portfolio</button>
 
-        <button class="nav-button">Transfer</button>
-          
-        <button class="nav-button">Create</button> 
-        
-          
-        <!-- Powered by Peerassets text and logo -->
-        <nav class="address">
-            <img src="static/img/logo.png">
-            <a href="https://github.com/PeerAssets/">Powered by PeerAssets</a>   
-        </nav> 
-          
+        <section class="account">
+            <div class="account__item">
+                <h1 class="account__title">Available</h1>
+                    <p class="account__balance">
+                        $22,0000
+                    </p>
+            </div>
+            
+        </section>
+
+
+
+
+        <main class="hotel-view">
+          <!-- <div class="gallery">
+              <figure class="gallery__item">
+                  <img src="img/hotel-1.jpg" alt="Photo of hotel 1" class = "gallery__photo">
+              </figure>
+              <figure class="gallery__item">
+                  <img src="img/hotel-2.jpg" alt="Photo of hotel 2" class = "gallery__photo">
+              </figure>
+              <figure class="gallery__item">
+                  <img src="img/hotel-3.jpg" alt="Photo of hotel 3" class = "gallery__photo">
+              </figure>
+          </div> -->
+
+
+          <div class="overview">
+              <div class="overview__date">
+                <h1 class="overview__heading">
+                    MAR
+                </h1>
+                <p class="overview__day">18</p>
+              </div>
+            
+                  
+              
+              <!-- <div class="overview__stars">
+                    <svg class="overview__icon-star">
+                        <use xlink:href="img/sprite.svg#icon-star"></use>
+                    </svg>
+                    <svg class="overview__icon-star">
+                        <use xlink:href="img/sprite.svg#icon-star"></use>
+                    </svg>
+                    <svg class="overview__icon-star">
+                        <use xlink:href="img/sprite.svg#icon-star"></use>
+                    </svg>
+                    <svg class="overview__icon-star">
+                        <use xlink:href="img/sprite.svg#icon-star"></use>
+                    </svg>
+                    <svg class="overview__icon-star">
+                        <use xlink:href="img/sprite.svg#icon-star"></use>
+                    </svg>
+                </div> -->
+
+                <div class="overview__location">
+                    <svg class="overview__icon-location">
+                        <use xlink:href="img/sprite.svg#icon-arrow-long-left"></use>
+                    </svg>
+                    <button class="btn-inline">Transaction ID</button>
+                </div>
+              
+
+              <div class="overview__rating">
+                  <div class="overview__rating-average">+28.6</div>
+                  <!-- <div class="overview__rating-count">429 votes</div> -->
+              </div>
+          </div>
+        </main>
       </div>
-        
-      <div class="nine columns">
-        
-          
-        <header class="page-title">
-                <h1>No u</h1>
-        </header>  
-          
-        <!-- <nav class="main-nav main-nav--hidden js-main-nav" id="navin"> -->
-        
-        <div class="cd-signin-modal js-signin-modal" id="signin-modal"> <!-- this is the entire modal form, including the background -->
-            <div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
-                
-                <ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
-                    <li><a href="#0" data-signin="login" data-type="login">Sign in</a></li>
-                    <li><a href="#0" data-signin="signup" data-type="signup">New account</a></li>
-                </ul>
-                
-                <div class="cd-signin-modal__block js-signin-modal-block" data-type="login"> <!-- log in form -->
-                    
-                    <form class="cd-signin-modal__form" id="form-signin" onsubmit="setNav()" action="/">
-                        
-                        <!-- Select Network Dropdown -->
-                        <p class="cd-signin-modal_fieldset">
-                            <a class="cd-main-nav__item">
-                                <select class="cd-main-nav__item cd-main-nav__item--dropdown" name="networks" id="networks">
-                                    <option value="peercoin">Peercoin</option>
-                                    <option value="peercoinTestnet">Peercoin Testnet</option>
-                                    <option value="bitcoin">Bitcoin</option>
-                                    <option value="bitcoinTestnet">Bitcoin Testnet</option>
-                                </select>
-                            </a>                            
-                        </p>
-                        
-                        <p class="cd-signin-modal__fieldset">
-                            <label class="cd-signin-modal__label cd-signin-modal__label--mnemonic cd-signin-modal__label--image-replace" for="mnemonic">12-Word Passphrase</label>
-                            <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-border" id="passphrase1" type="text" placeholder="12-Word Passphrase">
-                            <span class="cd-signin-modal__error">Error message here!</span>
-                        </p>
-
-                        <p class="cd-signin-modal__fieldset">
-                            <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
-                            <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-border" id="passkey1" type="password"  placeholder="Password">
-                            <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Show</a>
-                            <span class="cd-signin-modal__error">Error message here!</span>
-                        </p>
-
-                        <p class="cd-signin-modal__fieldset">
-                            <input class="cd-signin-modal__input cd-signin-modal__input--full-width" name="keylogin" onclick="window.location='/';" type="submit" id="existingKey" value="Login">
-                        </p>
-                    </form>
-
-
-                </div> <!-- cd-signin-modal__block -->
-
-                <div class="cd-signin-modal__block js-signin-modal-block" data-type="signup"> <!-- sign up form -->
-                    <form class="cd-signin-modal__form" id="form-signup" onsubmit="setNav()" action="/" >
-                        
-                        <!-- Select Network Dropdown -->
-                        <p class="cd-signin-modal_fieldset">
-                            <a class="cd-main-nav__item">
-                                <select class="cd-main-nav__item cd-main-nav__item--dropdown" name="networks" id="networks">
-                                    <option value="peercoin">Peercoin</option>
-                                    <option value="peercoinTestnet">Peercoin Testnet</option>
-                                    <option value="bitcoin">Bitcoin</option>
-                                    <option value="bitcoinTestnet">Bitcoin Testnet</option>
-                                </select>
-                            </a>                            
-                        </p>
-                        
-                        
-                        <p class="cd-signin-modal__fieldset">
-                            <label class="cd-signin-modal__label cd-signin-modal__label--mnemonic cd-signin-modal__label--image-replace">12-Word Passphrase</label>
-                            <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-border" id="passphrase2" type="text" placeholder="12-Word Passphrase">
-                            <span class="cd-signin-modal__error">Error message here!</span>
-                        </p>
-
-                        <p class="cd-signin-modal__fieldset">
-                                <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="button" value="Generate new passphrase" id="getMnemonic">
-                            </p>
-
-                        <p class="cd-signin-modal__fieldset">
-                            <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" >Password</label>
-                            <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-border" id="passkey2" type="password"  placeholder="Password">
-                            <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Show</a>
-                            <span class="cd-signin-modal__error">Error message here!</span>
-                        </p>
-
-                        <p class="cd-signin-modal__fieldset">
-                            <input class="cd-signin-modal__input cd-signin-modal__input--full-width" name="keylogin" onclick="window.location='/';" type="submit" id="newKey" value="Create account">
-                            <a href="#0" class="cd-signin-modal__close js-close">Close</a>
-                        </p>
-                    </form>
-                </div> <!-- cd-signin-modal__block -->
-            </div> <!-- cd-signin-modal__container -->
-        </div> <!-- cd-signin-modal -->
-
-        <script src="static/js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
-        <script src="static/js/main.js"></script> <!-- Resource JavaScript -->  
-          
-      </div>
-        
     </div>
-  </div>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
+  </body>
 </html>
