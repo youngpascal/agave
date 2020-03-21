@@ -180,10 +180,21 @@
 //LEGAL TEXT
 
 .legal {
-  font-size: 1.2rem;
-  color: var(--color-grey-light-4);
-  text-align: center;
-  padding: 2.5rem;
+    font-size: 1.2rem;
+    color: var(--color-grey-light-4);
+    text-align: center;
+    padding: 2.5rem;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-primary);
+  }
+  img {
+    height: 2vh;
+    vertical-align: text-bottom;
+  }
 }
 
 /////////////////////////////////////
@@ -198,7 +209,7 @@
 }
 
 /////////////////////////////////////
-//HOTEL OVERVIEW
+//WALLET OVERVIEW
 
 .overview {
   display: flex;
