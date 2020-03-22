@@ -10,7 +10,7 @@ function loadTransactions(pageLength, pageNumber) {
         main_div.innerHTML= ""
         for (var x=0; x<10; x++){
             trans_html =        '<div  class="overview__identicon">'+
-                                    '<div class="overview__identicon__placeholder"></div>'+
+                                    '<div class="overview__identicon__placeholder"><canvas width="80" height="80" data-jdenticon-value="' + transID[x] + '"></canvas></div>'+
                                 '</div>'+
                                 '<div class="overview__info">'+
                                     '<h1 class="overview__name">'+transactions[transID[x]].name+'</h1>'+
@@ -26,7 +26,7 @@ function loadTransactions(pageLength, pageNumber) {
         }
       }
     };
-    xhttp.open("GET", "http://api.agavewallet.com/v1/assets?limit="+pageLength+"&page="+pageNumber, true);
+    xhttp.open("GET", "https://api.agavewallet.com/v1/assets?limit="+pageLength+"&page="+pageNumber, true);
     xhttp.send();
   }
 
