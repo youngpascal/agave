@@ -86,8 +86,6 @@ function render_not_implemented(name){
 ///////////////////////////////////////////////////////
 /////////// AJAX Calls ////////////////////////////////
 ///////////////////////////////////////////////////////
-
-
 function getRequest(uri,callback) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -100,8 +98,8 @@ function getRequest(uri,callback) {
 }
 
 function loadTransactionPage(pageLength,pageNumber){
-  //getRequest("https://api.agavewallet.com/v1/assets?limit="+pageLength+"&page="+pageNumber, loadTransactions)
-  getRequest("./js/testdata25.json?limit="+pageLength+"&page="+pageNumber, loadTransactions)
+  getRequest("https://api.agavewallet.com/v1/assets?limit="+pageLength+"&page="+pageNumber, loadTransactions)
+  //getRequest("./js/testdata25.json?limit="+pageLength+"&page="+pageNumber, loadTransactions)
 }
 
 
