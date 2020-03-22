@@ -1,6 +1,6 @@
 var Issue_Modes = ["None", "Custom", "Once", "Multi", "Mono", "Singlet", "Unflushable", "Subscription"]
 
-var RENDERERS = {"OVERVIEW":render_overview}
+var RENDERERS = {"LOGIN":render_login, "OVERVIEW":render_overview}
 
 ////////////////////////////////////////////////////////
 ///////////         UTILITIES           ////////////////
@@ -54,7 +54,34 @@ function render_page(pageName){
   }
 }
 
+// Render Login page template
+function render_loginPage(){
+  console.log("Rendering Login Page")
+  var builder = new DocumentFragment();
 
+  // Parent Login Div
+  var login_div = document.createElement("div")
+  login_div.className+= "loginForm"
+
+  var phraseInput = document.createElement("input")
+  phraseInput.placeholder+= "12-Word Passphrase"
+  login_div.appendChild(phraseInput)
+
+  var passwordInput = document.createElement("input")
+  passwordInput.placeholder+= "Password"
+  login_div.appendChild(passwordInput)
+
+  var loginButton = document.createElement("button")
+  loginButton.innerText += "Login"
+  login_div.appendChild(loginButton)
+
+  // Build it all
+  builder.appendChild(login_div)
+
+  var main_div = getMainDiv()
+  clearObjectHTML(main_div)
+  main_div.appendChild(builder)
+}
 
 function render_overview(){
   loadTransactionPage(25,1)
