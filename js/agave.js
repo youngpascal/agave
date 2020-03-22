@@ -1,4 +1,4 @@
-var pageLength = 10
+var pageLength = 25
 var Issue_Modes = ["None", "Custom", "Once", "Multi", "Mono", "Singlet", "Unflushable", "Subscription"]
 function loadTransactions(pageLength, pageNumber) {
     var xhttp = new XMLHttpRequest();
@@ -8,7 +8,7 @@ function loadTransactions(pageLength, pageNumber) {
         transID = Object.keys(transactions)
         main_div = document.getElementsByTagName("main")[0]
         main_div.innerHTML= ""
-        for (var x=0; x<10; x++){
+        for (var x=0; x<pageLength; x++){
             trans_html =        '<div  class="overview__identicon">'+
                                     '<div class="overview__identicon__placeholder"><canvas width="80" height="80" data-jdenticon-value="' + transID[x] + '"></canvas></div>'+
                                 '</div>'+
