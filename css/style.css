@@ -44,7 +44,8 @@ body {
 .header {
   font-size: 1.4rem;
   height: 7rem;
-  background-color: var(--color-grey-dark-1);
+  background-color: #fff;
+  border-bottom: 1px solid var(--color-grey-light-2);
   display: flex;
   justify-content: space-between;
   align-items: center; }
@@ -53,13 +54,13 @@ body {
   display: flex; }
 
 .sidebar {
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-grey-dark-1);
   flex: 0 0 18%;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
 
-.hotel-view {
+.main-view {
   background-color: #fff;
   overflow-y: scroll;
   height: 80rem;
