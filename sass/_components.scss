@@ -214,7 +214,7 @@
 .overview {
   display: flex;
   //   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   border-bottom: 1px solid var(--color-grey-light-2);
   &__heading {
     font-size: 2.25rem;
@@ -233,6 +233,43 @@
     flex-direction: column;
     align-items: center;
   }
+
+  &__identicon__placeholder{
+    width:80px;
+    height:80px;
+    background: rgba(0, 0, 0, 0.4)
+  }
+
+  &__info {
+    display: flex;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-size: 1.25rem;
+  }
+
+  &__transID {
+    display:flex;
+    font-size:1.25rem;
+    justify-self: flex-start;
+  }
+
+  &__identicon {
+    background-color: var(--color-primary);
+    color: #fff;
+    align-self: stretch;
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    margin-right:.5rem;
+  }
+
   &__day {
     margin-top: -7px;
     margin-bottom: 8px;

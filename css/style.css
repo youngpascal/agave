@@ -44,8 +44,7 @@ body {
 .header {
   font-size: 1.4rem;
   height: 7rem;
-  background-color: #fff;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  background-color: var(--color-grey-dark-1);
   display: flex;
   justify-content: space-between;
   align-items: center; }
@@ -54,7 +53,7 @@ body {
   display: flex; }
 
 .sidebar {
-  background-color: var(--color-grey-dark-1);
+  background-color: var(--color-primary-dark);
   flex: 0 0 18%;
   display: flex;
   flex-direction: column;
@@ -62,6 +61,7 @@ body {
 
 .hotel-view {
   background-color: #fff;
+  overflow-y: scroll;
   height: 80rem;
   flex: 2.5; }
 
@@ -192,7 +192,7 @@ body {
 
 .overview {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   border-bottom: 1px solid var(--color-grey-light-2); }
   .overview__heading {
     font-size: 2.25rem;
@@ -207,6 +207,32 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; }
+  .overview__identicon__placeholder {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.4); }
+  .overview__info {
+    display: flex;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    flex-direction: column; }
+  .overview__name {
+    font-size: 1.25rem; }
+  .overview__transID {
+    display: flex;
+    font-size: 1.25rem;
+    justify-self: flex-start; }
+  .overview__identicon {
+    background-color: var(--color-primary);
+    color: #fff;
+    align-self: stretch;
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: .5rem; }
   .overview__day {
     margin-top: -7px;
     margin-bottom: 8px;
