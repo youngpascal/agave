@@ -233,13 +233,43 @@
     flex-direction: column;
     align-items: center;
   }
-  &__name {
-    font-size: 2.25rem;
+
+  &__identicon__placeholder{
+    width:70px;
+    height:70px;
+    background: rgba(0, 0, 0, 0.4)
+  }
+
+  &__info {
+    display: flex;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 0.5rem 3rem;
+    flex-direction: column;
   }
+
+  &__name {
+    font-size: 1.25rem;
+  }
+
+  &__transID {
+    display:flex;
+    font-size:1.25rem;
+    justify-self: flex-start;
+  }
+
+  &__identicon {
+    background-color: var(--color-primary);
+    color: #fff;
+    align-self: stretch;
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    margin-right:.5rem;
+  }
+
   &__day {
     margin-top: -7px;
     margin-bottom: 8px;
