@@ -1,6 +1,6 @@
 var Issue_Modes = ["None", "Custom", "Once", "Multi", "Mono", "Singlet", "Unflushable", "Subscription"]
 
-var RENDERERS = {"LOGIN":render_login, "OVERVIEW":render_overview}
+var RENDERERS = {"LOGIN":render_loginPage, "OVERVIEW":render_overview}
 
 ////////////////////////////////////////////////////////
 ///////////         UTILITIES           ////////////////
