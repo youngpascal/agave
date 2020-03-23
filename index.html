@@ -34,17 +34,14 @@
                 </svg>
             </div> -->
             <div class="user-nav__user">
+                <canvas data-jdenticon-value="Agave Wallet" id="address-identicon" class="user-nav__identicon"></canvas>
                 <span class="user-nav__user-name" id="address"></span>
             </div>
             <!-- User Identicon -->
-            <div class="user-nav__icon-box"" >
-                <canvas data-jdenticon-value="" id="address-identicon" class="user-nav__identicon">
-                <!-- <span class="user-nav__notification">13</span> -->
-            </div>
             <!-- Log out Icon -->
-            <div class="user-nav__icon-box" onclick="logoutUser()" id="logout-key">
+            <div class="user-nav__icon-box" id="logout-key">
                 <svg class="user-nav__icon">
-                    <use xlink:href="img/sprite.svg#icon-key"></use>
+                    <use xlink:href="img/sprite.svg#icon-logout"></use>
                 </svg>
                 <!-- <span class="user-nav__notification">13</span> -->
             </div>
@@ -68,7 +65,7 @@
               <li class="side-nav__item">
                   <a href="#" class="side-nav__link">
                       <svg class="side-nav__icon">
-                          <use xlink:href="img/sprite.svg#icon-home"></use>
+                          <use xlink:href="img/sprite.svg#icon-pie_chart"></use>
                       </svg>
                       <span>Overview</span>
                   </a>
@@ -76,7 +73,7 @@
               <li class="side-nav__item">
                   <a href="#" class="side-nav__link">
                       <svg class="side-nav__icon">
-                          <use xlink:href="img/sprite.svg#icon-arrow-long-left"></use>
+                          <use xlink:href="img/sprite.svg#icon-send"></use>
                       </svg>
                       <span>Send</span>
                   </a>
@@ -84,7 +81,7 @@
               <li class="side-nav__item">
                   <a href="#" class="side-nav__link">
                       <svg class="side-nav__icon">
-                          <use xlink:href="img/sprite.svg#icon-star"></use>
+                          <use xlink:href="img/sprite.svg#icon-compare_arrows"></use>
                       </svg>
                       <span>Transactions</span>
                   </a>
@@ -92,7 +89,7 @@
               <li class="side-nav__item">
                   <a href="#" class="side-nav__link">
                       <svg class="side-nav__icon">
-                          <use xlink:href="img/sprite.svg#icon-download"></use>
+                          <use xlink:href="img/sprite.svg#icon-account_balance_wallet"></use>
                       </svg>
                       <span>Mining</span>
                   </a>
@@ -112,11 +109,6 @@
             <a href="https://github.com/peerassets">Powered By PeerAssets</a> 
           </div>
         </nav>
-
-        
-
-
-
 
         <main class="main-view">
           <!-- <div class="gallery">
@@ -180,7 +172,7 @@
                 </script>
                 <script src="https://cdn.jsdelivr.net/npm/jdenticon@2.2.0" ></script>
                 <script src='./js/app.js'></script>
-                <script src='./js/agave.js'></script>
+                <script type="module" src='./js/agave.js'></script>
                 
 
               

@@ -1,6 +1,6 @@
 //Colors as Variables
 :root {
-  --color-primary: #3a8275;
+  --color-primary: #1e413b;
   --color-primary-light: #89b4ac;
   --color-primary-dark: #1d413b;
 
@@ -12,6 +12,8 @@
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
+
+  --color-blue: #194354;
 
   --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
 }
@@ -37,7 +39,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  padding: 3.5vh 7vh;
+  padding: 3.8vh 20vh;
   color: var(--color-grey-dark-2);
   background-image: linear-gradient(
     to right bottom,

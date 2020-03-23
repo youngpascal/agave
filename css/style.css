@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #3a8275;
+  --color-primary: #1e413b;
   --color-primary-light: #89b4ac;
   --color-primary-dark: #1d413b;
   --color-grey-light-1: #faf9f9;
@@ -9,6 +9,7 @@
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
+  --color-blue: #194354;
   --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3); }
 
 * {
@@ -28,6 +29,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.6;
+  padding: 3.8vh 20vh;
   color: var(--color-grey-dark-2);
   background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
   background-size: cover;
@@ -35,17 +37,14 @@ body {
   min-height: 100vh; }
 
 .container {
-  max-width: 120rem;
-  margin: 8rem auto;
   background-color: var(--color-grey-light-2);
-  box-shadow: var(--shadow-dark);
-  min-height: 50rem; }
+  box-shadow: var(--shadow-dark); }
 
 .header {
   font-size: 1.4rem;
-  height: 7rem;
-  background-color: #fff;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  height: 8vh;
+  min-height: 8rem;
+  background: linear-gradient(250deg, #2e685e, #194354);
   display: flex;
   justify-content: space-between;
   align-items: center; }
@@ -62,8 +61,8 @@ body {
 
 .main-view {
   background-color: #fff;
-  overflow-y: scroll;
-  height: 80rem;
+  overflow-y: auto;
+  height: 84vh;
   flex: 2.5; }
 
 .account {
@@ -122,12 +121,19 @@ body {
     align-items: center; }
   .user-nav > *:hover {
     background-color: var(--color-grey-light-2); }
+  .user-nav__user {
+    visibility: hidden; }
   .user-nav__icon-box {
     position: relative; }
   .user-nav__icon {
     height: 2.25rem;
     width: 2.25rem;
-    fill: var(--color-grey-dark-2); }
+    fill: #ffffff; }
+  .user-nav__user-name {
+    color: #fff; }
+  .user-nav__identicon {
+    height: 50px;
+    width: 100px; }
   .user-nav__user-photo {
     height: 3.75rem;
     border-radius: 50%;
@@ -191,6 +197,79 @@ body {
     width: 100%;
     display: block; }
 
+.login_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 5rem;
+  height: 100%;
+  width: 100%;
+  background: #1e413b;
+  box-shadow: 0px 0px 30px 10px RGBA(0, 0, 0, 0.4); }
+  .login_form__header {
+    color: white;
+    letter-spacing: 3px;
+    font-size: 6em;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid white;
+    line-height: 1.7;
+    text-transform: uppercase; }
+  .login_form__container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .login_form__input {
+    font-family: inherit;
+    font-size: 1.25rem;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    margin: 1rem;
+    border-radius: 100px;
+    width: 40%;
+    transition: all 0.2s;
+    line-height: 4rem; }
+  .login_form__text_area {
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    resize: none;
+    font-size: 2.25rem;
+    text-transform: uppercase; }
+  .login_form__button_row {
+    width: 40%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly; }
+  .login_form__button {
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: var(--color-grey-light-3);
+    flex-grow: 1;
+    height: 4rem;
+    border: none;
+    margin: 1rem;
+    background: var(--color-primary);
+    border-radius: 80px; }
+
+input[type=button] {
+  background-color: var(--color-primary-light);
+  border: 1px solid #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+  position: relative; }
+
+input[type=button]:hover {
+  border: 1px solid var(--color-primary-dark);
+  background-color: var(--color-primary-dark); }
+
 .overview {
   display: flex;
   justify-content: flex-start;
@@ -204,20 +283,27 @@ body {
   .overview__stars {
     margin-right: auto;
     display: flex; }
+  .overview__not_implemented {
+    display: flex;
+    white-space: pre;
+    justify-content: center;
+    align-items: center;
+    height: 100%; }
   .overview__date {
     display: flex;
     flex-direction: column;
     align-items: center; }
-  .overview__identicon__placeholder {
+  .overview__identicon {
     width: 80px;
-    height: 80px;
+    height: 80px; }
+  .overview__identicon > canvas {
     background: rgba(0, 0, 0, 0.4); }
   .overview__info {
     display: flex;
     font-weight: 300;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    flex-direction: column; }
+    flex-direction: column;
+    justify-content: space-evenly; }
   .overview__name {
     font-size: 1.25rem; }
   .overview__transID {
