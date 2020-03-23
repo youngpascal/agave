@@ -22,7 +22,6 @@
 .sidebar {
   background-color: var(--color-grey-dark-1);
   flex: 0 0 18%;
-  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,7 +29,7 @@
 
 .main-view {
   background-color: #fff;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 84vh;
   flex: 2.5;
 }
