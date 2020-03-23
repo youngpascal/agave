@@ -1,9 +1,8 @@
-
 //////////////////////////////////////////////////////////////////////////////
 //////  Render Login page template //////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
 
-export function render_loginPage(){
+export function render_loginPage(main_div){
     console.log("Rendering Login Page")
     var builder = new DocumentFragment();
   
@@ -39,6 +38,7 @@ export function render_loginPage(){
     loginButton.className+= " login_form__button btn btn--white btn--animated"
     loginButton.setAttribute("type","button");
     loginButton.value = "Login";
+    loginButton.id = "login";
     loginButton.addEventListener("click",function(event){
       console.log("clicked login")
       var safety_code = document.getElementById("safety-code").value
@@ -72,8 +72,7 @@ export function render_loginPage(){
   
     // Build it all
     builder.appendChild(login_div_container)
-    return builder 
-    
+    main_div.appendChild(builder)
   }
 
 

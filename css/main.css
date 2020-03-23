@@ -438,6 +438,21 @@ input[type=button]:hover {
   background-color: var(--color-primary-dark);
 }
 
+.send {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.send__tools {
+  width: 100%;
+  padding: 2rem;
+  background-color: black;
+}
+
 .overview {
   display: -webkit-box;
   display: -ms-flexbox;

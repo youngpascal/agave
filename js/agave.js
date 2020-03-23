@@ -8,7 +8,7 @@ var Issue_Modes = ["None", "Custom", "Once", "Multi", "Mono", "Singlet", "Unflus
 // Network Arrays
 var Networks = {"Peercoin": "Peercoin", "Peercoin-Testnet": "PeercoinTestnet","Bitcoin": "Bitcoin", "Bitcoin-Testnet":"BitcoinTestnet"};
 // Render Pages
-var RENDERERS = {"LOGIN":login.render_loginPage, "OVERVIEW":overview.render_overview, "SEND": send.render_sendPage};
+var RENDERERS = {"LOGIN": login.render_loginPage, "OVERVIEW": overview.render_overview, "SEND": send.render_sendPage};
 
 
 ////////////////////////////////////////////////////////
@@ -43,7 +43,6 @@ function addOnClickToNavItems(){
     val.addEventListener("click",changePage);
     console.log("Added OnClick");
   });
-  
 }
 
 function changePage(event){
@@ -66,19 +65,21 @@ function changePage(event){
   }
 }
 
+function changePageHash(event){
+  var hash = event.newURL.split("#")[1]
+  render_page(hash.toUpperCase())
+}
+
 ///////////////////////////////////////////////////////
 ////////////////     PAGE RENDERS   ///////////////////
 ///////////////////////////////////////////////////////
 function render_page(pageName){
   clearObjectHTML(getMainDiv());
   if (RENDERERS[pageName]!=undefined){
-    console.log(RENDERERS[pageName]);
-    //loadTransactionPage(25,1)(25,1)
-    var builder = RENDERERS[pageName]();
-    console.log("builder", builder);
+    console.log("Current Page", RENDERERS[pageName]);
     var main_div = getMainDiv();
     clearObjectHTML(main_div);
-    main_div.appendChild(builder);
+    RENDERERS[pageName](main_div);
   }
   else{
     render_not_implemented(pageName);
@@ -100,24 +101,23 @@ function render_not_implemented(name){
   builder.appendChild(not_implemented_div);
   return builder;
 }
+
+window.addEventListener("hashchange",changePageHash,true)
 ///////////////////////////////////////////////////////////
 /////////////// Run to Render Pages //////////////////////
 /////////////////////////////////////////////////////////
-addOnClickToNavItems()
-
+//addOnClickToNavItems()
 if ( !login.isLoggedIn() ) {
   // If user is not logged in then load the login page
-  console.log("User is not logged in");
-  render_page("LOGIN");
-
+  document.location.hash = "#login"
+  
 } else if ( login.isLoggedIn() ) {
-
-  var page = document.location.hash.replace("#","");
   createLogoutUser();
+  var page = window.location.hash.replace("#","")
+  if (page === "" || page.toUpperCase() === "LOGIN" ){
+    document.location.hash = "#overview"
 
-  if (page === ""){
-    render_page("OVERVIEW");
   }else{
-    render_page(page.toUpperCase());
+    document.location.hash = "#" + page.toUpperCase();
   }
 }

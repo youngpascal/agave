@@ -4,19 +4,19 @@ var builder = new DocumentFragment();
 ///////////////////////////////////////////////////////
 /////////// AJAX Calls ////////////////////////////////
 ///////////////////////////////////////////////////////
-export function getRequest(uri,callback) {
+function getRequest(uri,callback,main_div) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        callback(this.responseText)
+        callback(this.responseText,main_div)
       }
     };
     xhttp.open("GET", uri, true);
     xhttp.send();
 }
 
-export function loadTransactionRequest(pageLength,pageNumber){
-    getRequest("https://api.agavewallet.com/v1/assets?limit="+pageLength+"&page="+pageNumber, loadTransactions)
+function loadTransactionRequest(pageLength,pageNumber,main_div){
+    getRequest("https://api.agavewallet.com/v1/assets?limit="+pageLength+"&page="+pageNumber, loadTransactions,main_div)
   }
 
 ////////////////////////////////////////////////////////
@@ -67,16 +67,15 @@ function createTransactionDiv(transaction, transID){
   
   }
 
-export function loadTransactions(response){
+function loadTransactions(response,main_div){
     var transactions = JSON.parse(response)
     var transID = Object.keys(transactions)
     for (var x in transactions){
       builder.appendChild(createTransactionDiv(transactions[x],x))
     }
+    main_div.appendChild(builder)
   }
 
-export function render_overview(){
-    loadTransactionRequest(25,1)
-    return builder
-
+export function render_overview(main_div){
+    loadTransactionRequest(25,1,main_div)
   }
