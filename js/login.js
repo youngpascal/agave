@@ -35,7 +35,7 @@ export function render_loginPage(main_div){
     login_div.appendChild(passwordInput)
   
     var loginButton = document.createElement("input")
-    loginButton.className+= " login_form__button btn btn--white btn--animated"
+    loginButton.className+= "login_form__button btn btn--white btn--animated"
     loginButton.setAttribute("type","button");
     loginButton.value = "Login";
     loginButton.id = "login";

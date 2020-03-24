@@ -2,19 +2,18 @@
 // Prepared blockchain transaction
 
 // Remove this transaction
-// this.id = #
-// document.getElementsByClassName("send_transactionCard")[#]
-// elem.parentNode.removeChild(elem)
-function removeThisTransaction() {
-    console.log(this)
+function removeRecipient() {
+    var recipient = (this.parentNode)
+    recipient.remove();
 }
 
-// Remove All Transactions Button
-function removeAllTransactions() {
-    // Count how many extra transactions there are 
-    var transactions = document.getElementsByClassName("send__transactionCard");
+// Remove All Recipients Button
+function removeAllRecipients() {
+
+    // Count how many extra recipients there are 
+    var recipients = document.getElementsByClassName("page__recipientCard");
     // -1 to offset the length
-    var toRemove = transactions.length - 1;
+    var toRemove = recipients.length - 1;
     var i;
 
     for (i = toRemove; i > 0; i--) {
@@ -23,57 +22,57 @@ function removeAllTransactions() {
     }
 }
 
-// Send Transaction Chunk
-function createSendTransactionForm() {
-    var send_transactionCard = document.createElement("div");
-    send_transactionCard.className = "send__transactionCard";
-    // Get the transaction # 
-    send_transactionCard.id = document.getElementsByClassName("send__transactionCard").length;
+// Send Recipients Chunk
+function createSendRecipientForm() {
+    var send_recipientCard = document.createElement("div");
+    send_recipientCard.className = "page__recipientCard";
+
+    // Get the recipient # 
+    send_recipientCard.id = document.getElementsByClassName("page__recipientCard").length;
 
     // Pay to
     var payToTitle = document.createElement("h3");
-    payToTitle.className = "send__payTo-title"
+    payToTitle.className = "anything__subtitle";
     payToTitle.innerHTML = "Pay To";
-    send_transactionCard.appendChild(payToTitle);
+    send_recipientCard.appendChild(payToTitle);
   
     var payInput = document.createElement("input");
-    payInput.className = "send__payTo-entry";
+    payInput.className = "page__entry";
     payInput.placeholder += "Enter an Address";
-    send_transactionCard.appendChild(payInput);
+    send_recipientCard.appendChild(payInput);
   
     // Amount
     var amountTitle = document.createElement("h3");
-    amountTitle.className += "send__payTo-title"
+    amountTitle.className += "page__subtitle"
     amountTitle.innerHTML += "Amount";
-    send_transactionCard.appendChild(amountTitle);
+    send_recipientCard.appendChild(amountTitle);
   
     var amountInput = document.createElement("input");
-    amountInput.className = "send__payTo-entry";
+    amountInput.className = "page__entry";
     amountInput.placeholder += "Enter Amount";
-    send_transactionCard.appendChild(amountInput);
+    send_recipientCard.appendChild(amountInput);
     
-    // Remove Transaction
+    // Remove Recipient
     var removeButton = document.createElement("button")
-    removeButton.className = "button"
+    removeButton.className = "login_form__button btn btn--white btn--animated"
     removeButton.type = "button"
-    removeButton.innerHTML = "Remove Transaction"
-    send_transactionCard.addEventListener("click", removeThisTransaction);
-    send_transactionCard.appendChild(removeButton);
+    removeButton.innerHTML = "Remove Recipient"
+    removeButton.addEventListener("click", removeRecipient);
+    send_recipientCard.appendChild(removeButton);
 
-    return send_transactionCard
+    return send_recipientCard
   }
   
   export function render_sendPage(main_div){
     var builder = new DocumentFragment();
-    console.log("Rendering Send Page...")
 
     // Structure
     // - Send
     // |
-    // --- Send Transactions
+    // --- Send Recipients
     // |  |
-    // |  --- Transactions 1
-    // |  --- Transactions 2
+    // |  --- Recipients 1
+    // |  --- Recipients 2
     // |
     // --- Send Tools 
     //     |
@@ -81,21 +80,21 @@ function createSendTransactionForm() {
     //     --- Add Button
     //     --- Send Button
 
-    // Transactions parent div container
+    // Recipients parent div container
     var send_div = document.createElement("div")
-    send_div.className="send"
+    send_div.className="page"
   
-    var send__transactions = document.createElement("div")
-    send__transactions.className="send__transactions"
-    send_div.appendChild(send__transactions)
+    var send__recipients = document.createElement("div")
+    send__recipients.className="page__recipients"
+    send_div.appendChild(send__recipients)
 
-    // Make one transaction by default
-    send__transactions.appendChild(createSendTransactionForm());
+    // Make one recipients by default
+    send__recipients.appendChild(createSendRecipientForm());
 
     ////////////////////////////////////////////////////////
     // Constants Toolbar
     var send_tools_div = document.createElement("div")
-    send_tools_div.className = "send__tools"
+    send_tools_div.className = "page__tools"
 
         // Clear All
         var clearButton = document.createElement("button")
@@ -103,17 +102,17 @@ function createSendTransactionForm() {
         clearButton.setValue += "Clear All"
         clearButton.innerHTML = "Clear All"
         clearButton.addEventListener("click", function(event){
-            removeAllTransactions();
+            removeAllRecipients();
         })
         send_tools_div.appendChild(clearButton)
   
-        // Add New Transaction
+        // Add New Recipient
         var addButton = document.createElement("button")
         addButton.className = "button"
-        addButton.setValue += "Add Transaction"
-        addButton.innerHTML = "Add Transaction"
+        addButton.setValue += "Add Recipient"
+        addButton.innerHTML = "Add Recipient"
         addButton.addEventListener("click", function(event){
-            send__transactions.appendChild(createSendTransactionForm());
+            send__recipients.appendChild(createSendRecipientForm());
         })
         send_tools_div.appendChild(addButton)
         

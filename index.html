@@ -33,7 +33,7 @@
                     <use xlink:href="img/sprite.svg#icon-bookmark"></use>
                 </svg>
             </div> -->
-            <div class="user-nav__user">
+            <div class="user-nav__user" onclick="location.href='#Manage'">
                 <canvas data-jdenticon-value="Agave Wallet" id="address-identicon" class="user-nav__identicon"></canvas>
                 <span class="user-nav__user-name" id="address"></span>
             </div>
@@ -62,7 +62,7 @@
                       <span>Menu</span>
                   </a>
               </li> -->
-              <li class="side-nav__item" id="overview">
+              <li class="side-nav__item" id="overview-nav">
                   <a href="#Overview" class="side-nav__link">
                       <svg class="side-nav__icon">
                           <use xlink:href="img/sprite.svg#icon-pie_chart"></use>
@@ -70,7 +70,7 @@
                       <span>Overview</span>
                   </a>
               </li>
-              <li class="side-nav__item">
+              <li class="side-nav__item" id="send-nav">
                   <a href="#Send" class="side-nav__link">
                       <svg class="side-nav__icon">
                           <use xlink:href="img/sprite.svg#icon-send"></use>
@@ -78,7 +78,7 @@
                       <span>Send</span>
                   </a>
               </li>
-              <li class="side-nav__item">
+              <li class="side-nav__item" id="transactions-nav">
                   <a href="#Transactions" class="side-nav__link">
                       <svg class="side-nav__icon">
                           <use xlink:href="img/sprite.svg#icon-compare_arrows"></use>
@@ -86,20 +86,12 @@
                       <span>Transactions</span>
                   </a>
               </li>
-              <li class="side-nav__item">
-                  <a href="#Mining" class="side-nav__link">
+              <li class="side-nav__item" id="manage-nav">
+                  <a href="#Manage" class="side-nav__link">
                       <svg class="side-nav__icon">
                           <use xlink:href="img/sprite.svg#icon-account_balance_wallet"></use>
                       </svg>
-                      <span>Mining</span>
-                  </a>
-              </li>
-              <li class="side-nav__item">
-                  <a href="#Addresses" class="side-nav__link">
-                      <svg class="side-nav__icon">
-                          <use xlink:href="img/sprite.svg#icon-address"></use>
-                      </svg>
-                      <span>Addresses</span>
+                      <span>Manage</span>
                   </a>
               </li>
           </ul>
@@ -111,17 +103,7 @@
         </nav>
 
         <main class="main-view">
-          <!-- <div class="gallery">
-              <figure class="gallery__item">
-                  <img src="img/hotel-1.jpg" alt="Photo of hotel 1" class = "gallery__photo">
-              </figure>
-              <figure class="gallery__item">
-                  <img src="img/hotel-2.jpg" alt="Photo of hotel 2" class = "gallery__photo">
-              </figure>
-              <figure class="gallery__item">
-                  <img src="img/hotel-3.jpg" alt="Photo of hotel 3" class = "gallery__photo">
-              </figure>
-          </div> -->
+         
 
 
           <!-- <div class="overview">
@@ -162,7 +144,7 @@
 
                 <!-- <div class="overview__rating">
                     <div class="overview__rating-average">+28.6</div>
-                    <!-- <div class="overview__rating-count">429 votes</div> -->
+                <div class="overview__rating-count">429 votes</div> -->
                 <!-- </div> -->
                 <!-- jdenticon  -->
                 <script>
@@ -172,10 +154,10 @@
                 </script>
                 <script src="https://cdn.jsdelivr.net/npm/jdenticon@2.2.0" ></script>
                 <script src='./js/app.js'></script>
-                <script type="module" src='./js/agave.js'></script>
-                
+                <script type="module" src='./js/agave.js'></script>                
 
               
+
           </div>
         </main>
       </div>

@@ -67,7 +67,8 @@ function createTransactionDiv(transaction, transID){
   
   }
 
-function loadTransactions(response,main_div){
+// Load transactions
+function loadTransactions(response, main_div){
     var transactions = JSON.parse(response)
     var transID = Object.keys(transactions)
     for (var x in transactions){
@@ -76,6 +77,65 @@ function loadTransactions(response,main_div){
     main_div.appendChild(builder)
   }
 
-export function render_overview(main_div){
-    loadTransactionRequest(25,1,main_div)
-  }
+// Overview Chunk
+export function render_overviewPage(main_div){
+  var building = new DocumentFragment();
+
+  // Overview
+  // - Balance
+  // |
+  // - Recent Transaction Table
+
+  var overview_div = document.createElement("div")
+  overview_div.className = "send";
+
+  // Overview Title Div
+  var overviewTitle = document.createElement("h1");
+  overviewTitle.className = "send__payToTitle";
+  overviewTitle.innerHTML = "Overview";
+  overview_div.appendChild(overviewTitle);
+
+  var overview_parent = document.createElement("div")
+  overview_parent.className = "overview__parent"
+  overview_div.appendChild(overview_parent)
+
+    // This will have all the balance stuff
+    var overview_balance_div = document.createElement("div");
+    overview_balance_div.className = "send";
+      //Balance
+      var overview_balance_subtitle = document.createElement("h3")
+      overview_balance_subtitle.className = "send__payToSubtitle";
+      overview_balance_subtitle.innerHTML = "Balance";
+      overview_balance_div.appendChild(overview_balance_subtitle);
+    
+      // Loaded balance will go here
+      var overview_balance = document.createElement("h3")
+      overview_balance.className = "send__payToBalance";
+      overview_balance.innerHTML = "7,000" // Balance needs to be auto loaded here
+      overview_balance_div.appendChild(overview_balance);
+
+    overview_parent.appendChild(overview_balance_div)
+
+    // Recent Transactions Div
+    var overview_recentTransactionDiv = document.createElement("div");
+    overview_recentTransactionDiv.className = "page__recentTranactions"
+
+      var overview_recentTransactionSubtitle = document.createElement("h3")
+      overview_recentTransactionSubtitle.className = "send__payToSubtitle";
+      overview_recentTransactionSubtitle.innerHTML = "Recent Decks:";
+      overview_recentTransactionDiv.appendChild(overview_recentTransactionSubtitle);
+
+      var overview_recentTransactionTableDiv = document.createElement("div");
+      loadTransactionRequest(25,1, overview_recentTransactionTableDiv);
+
+
+      overview_recentTransactionDiv.appendChild(overview_recentTransactionTableDiv);
+
+      
+    overview_div.appendChild(overview_recentTransactionDiv);
+  //////////////////////////
+  // Send it all back
+  //////////////////////////
+  main_div.appendChild(overview_div);
+
+}
