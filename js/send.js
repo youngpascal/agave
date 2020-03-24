@@ -32,7 +32,7 @@ function createSendRecipientForm() {
 
     // Pay to
     var payToTitle = document.createElement("h3");
-    payToTitle.className = "anything__subtitle";
+    payToTitle.className = "page__subtitle";
     payToTitle.innerHTML = "Pay To";
     send_recipientCard.appendChild(payToTitle);
   

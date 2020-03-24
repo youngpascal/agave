@@ -3,7 +3,7 @@ import * as overview from './overview.js';
 import * as send from './send.js';
 import * as transactions from './transactions.js';
 import * as manage from './manage.js';
-
+import * as provider from "./providers/chainz.js"
 
 // Issue Modes Array
 var Issue_Modes = ["None", "Custom", "Once", "Multi", "Mono", "Singlet", "Unflushable", "Subscription"];
@@ -11,7 +11,6 @@ var Issue_Modes = ["None", "Custom", "Once", "Multi", "Mono", "Singlet", "Unflus
 var Networks = {"Peercoin": "Peercoin", "Peercoin-Testnet": "PeercoinTestnet","Bitcoin": "Bitcoin", "Bitcoin-Testnet":"BitcoinTestnet"};
 // Render Pages
 var RENDERERS = {"LOGIN": login.render_loginPage, "OVERVIEW": overview.render_overviewPage, "SEND": send.render_sendPage, "MANAGE":manage.render_managePage};
-
 
 ////////////////////////////////////////////////////////
 ///////////         UTILITIES           ////////////////
@@ -116,6 +115,28 @@ function render_not_implemented(name){
   return builder;
 }
 
+/////////////////////////////////////////////
+///////// set data from external api ///////
+///////////////////////////////////////////
+
+function setProviderData(){
+  // TODO: network needs to be set in session storage!!
+  // var network = sessionStorage.getItem('network')
+  var address = sessionStorage.getItem('address')
+  console.log(address)
+  var User = new provider.Chainz('peercoin-testnet',address)
+  window.setInterval(setBalance(User),15000)
+}
+
+function setBalance(User){
+  console.log(User)
+  let state = User.getBalance()
+  var elem = document.getElementById("user-balance")
+  elem.innerHTML = state.balance
+}
+
+
+
 window.addEventListener("hashchange",changePageHash,true)
 window.addEventListener("beforeunload", unloadEventFlag)
 ///////////////////////////////////////////////////////////
@@ -139,6 +160,6 @@ if ( !login.isLoggedIn() ) {
       changeActive(page)
       window.sessionStorage.removeItem('unloadEventFlag')
     }
+    setProviderData()
+  
 }
-
-

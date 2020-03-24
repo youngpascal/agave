@@ -2,6 +2,14 @@
 //////  Render Login page template //////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
 
+// Deck Spawn Options
+function networkOptionDiv(mode) {
+  var networkOption = document.createElement("option");
+  networkOption.value = mode
+  networkOption.innerHTML = mode
+  return networkOption;
+}
+
 export function render_loginPage(main_div){
     console.log("Rendering Login Page")
     var builder = new DocumentFragment();
@@ -19,6 +27,19 @@ export function render_loginPage(main_div){
     loginTitle.innerHTML+= "Login"
     login_div.appendChild(loginTitle)
   
+    // Network Dropbox
+    var networkSelect = document.createElement("select")
+    networkSelect.className += "login_form__select"
+    networkSelect.innerHTML += "Select Network"
+    login_div.appendChild(networkSelect)
+
+      // Var options
+      networkSelect.appendChild(networkOptionDiv("Peercoin"))
+      networkSelect.appendChild(networkOptionDiv("Peercoin Testnet"))
+      networkSelect.appendChild(networkOptionDiv("Bitcoin Cash"))
+      networkSelect.appendChild(networkOptionDiv("Bitcoin Cash Testnet"))
+
+    // Phrase input
     var phraseInput = document.createElement("input")
     phraseInput.className+= " login_form__phrase_entry"
     phraseInput.className+= " login_form__input"

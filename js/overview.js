@@ -69,13 +69,13 @@ function createTransactionDiv(transaction, transID){
 
 // Load transactions
 function loadTransactions(response, main_div){
-    var transactions = JSON.parse(response)
-    var transID = Object.keys(transactions)
-    for (var x in transactions){
-      builder.appendChild(createTransactionDiv(transactions[x],x))
-    }
-    main_div.appendChild(builder)
+  var transactions = JSON.parse(response)
+  //var transID = Object.keys(transactions)
+  for (var x in transactions){
+    builder.appendChild(createTransactionDiv(transactions[x],x))
   }
+  main_div.appendChild(builder)
+}
 
 // Overview Chunk
 export function render_overviewPage(main_div){
@@ -87,11 +87,11 @@ export function render_overviewPage(main_div){
   // - Recent Transaction Table
 
   var overview_div = document.createElement("div")
-  overview_div.className = "send";
+  overview_div.className = "page";
 
   // Overview Title Div
   var overviewTitle = document.createElement("h1");
-  overviewTitle.className = "send__payToTitle";
+  overviewTitle.className = "page__payToTitle";
   overviewTitle.innerHTML = "Overview";
   overview_div.appendChild(overviewTitle);
 
@@ -101,17 +101,17 @@ export function render_overviewPage(main_div){
 
     // This will have all the balance stuff
     var overview_balance_div = document.createElement("div");
-    overview_balance_div.className = "send";
+    overview_balance_div.className = "page";
       //Balance
       var overview_balance_subtitle = document.createElement("h3")
-      overview_balance_subtitle.className = "send__payToSubtitle";
+      overview_balance_subtitle.className = "page__payToSubtitle";
       overview_balance_subtitle.innerHTML = "Balance";
       overview_balance_div.appendChild(overview_balance_subtitle);
     
       // Loaded balance will go here
       var overview_balance = document.createElement("h3")
-      overview_balance.className = "send__payToBalance";
-      overview_balance.innerHTML = "7,000" // Balance needs to be auto loaded here
+      overview_balance.id = "user-balance"
+      overview_balance.className = "page__payToBalance";
       overview_balance_div.appendChild(overview_balance);
 
     overview_parent.appendChild(overview_balance_div)
@@ -121,7 +121,7 @@ export function render_overviewPage(main_div){
     overview_recentTransactionDiv.className = "page__recentTranactions"
 
       var overview_recentTransactionSubtitle = document.createElement("h3")
-      overview_recentTransactionSubtitle.className = "send__payToSubtitle";
+      overview_recentTransactionSubtitle.className = "page__payToSubtitle";
       overview_recentTransactionSubtitle.innerHTML = "Recent Decks:";
       overview_recentTransactionDiv.appendChild(overview_recentTransactionSubtitle);
 

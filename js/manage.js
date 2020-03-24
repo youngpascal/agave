@@ -28,7 +28,7 @@ export function render_managePage(main_div){
     // Send Title
     var manage_nameTitle = document.createElement("h1");
     manage_nameTitle.className = "send__payToTitle";
-    manage_nameTitle.innerHTML = "Overview";
+    manage_nameTitle.innerHTML = "Manage";
     manage_div.appendChild(manage_nameTitle);
 
     // Name
