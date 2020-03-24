@@ -146,6 +146,7 @@ window.addEventListener("beforeunload", unloadEventFlag)
 if ( !login.isLoggedIn() ) {
   // If user is not logged in then load the login page
   document.location.hash = "#login"
+  render_page("LOGIN")
   
 }else if ( login.isLoggedIn() ) {
     createLogoutUser();

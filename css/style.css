@@ -211,9 +211,18 @@ body {
     line-height: 1.7;
     text-transform: uppercase; }
   .login_form__select {
-    width: 100%; }
-  .login_form__select select {
-    display: none; }
+    font-family: inherit;
+    font-size: 1.25rem;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    margin: 1rem;
+    border-radius: 100px;
+    width: 40%;
+    height: 50;
+    transition: all 0.2s;
+    line-height: 4rem; }
   .login_form__select-selected {
     background-color: dodgerblue; }
   .login_form__container {
@@ -222,9 +231,6 @@ body {
     justify-content: center;
     align-items: center; }
   .login_form__input {
-    background-image: url("/img/favicon-16x16.png");
-    background-position: 7px 7px;
-    background-repeat: no-repeat;
     font-family: inherit;
     font-size: 1.25rem;
     color: inherit;

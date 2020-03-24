@@ -230,7 +230,22 @@
   }
   
   &__select {
+    font-family: inherit;
+    font-size: 1.25rem;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    margin:1rem;
+    border-radius: 100px;
     width: 40%;
+    height: 50;
+    transition: all 0.2s;
+    line-height: 4rem;
+  }
+
+  &__select-selected {
+    background-color: dodgerblue;
   }
 
   &__container{
