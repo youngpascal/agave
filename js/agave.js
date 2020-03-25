@@ -166,7 +166,7 @@ function setBalance(User){
 function setUnspent(User){
   // Will get the User's available unspent transactions
   // This is used to created new transactions
-  let state = User.get
+  let state = User.getUnspentPromise()
   //var elem = document.getElementById("user-balance")
   state.then(data => {
     console.log(data)

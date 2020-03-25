@@ -36,7 +36,7 @@
       color: var(--color-grey-light-4);
     }
   }
-
+//
   &__input:focus + &__button {
     background-color: var(--color-grey-light-3);
   }
@@ -206,7 +206,7 @@
 }
 
 /////////////////////////////////////
-//LOGIN FORM 
+//LOGIN FORM //
 .login_form{
   display:flex;
   flex-direction:column;
