@@ -263,8 +263,7 @@ body {
     height: 4rem;
     border: none;
     margin: 1rem;
-    background: var(--color-primary);
-    border-radius: 80px; }
+    background: var(--color-primary); }
 
 input[type=button] {
   background-color: var(--color-primary-light);

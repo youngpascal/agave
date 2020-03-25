@@ -5,21 +5,29 @@ import * as transactions from './transactions.js';
 import * as manage from './manage.js';
 import * as provider from "./providers/chainz.js"
 
-// Issue Modes Array
-var Issue_Modes = ["None", "Custom", "Once", "Multi", "Mono", "Singlet", "Unflushable", "Subscription"];
+
 // Network Arrays
-var Networks = {"Peercoin": "Peercoin", "Peercoin-Testnet": "PeercoinTestnet","Bitcoin": "Bitcoin", "Bitcoin-Testnet":"BitcoinTestnet"};
+var Networks = {
+  "Peercoin": "Peercoin",
+  "Peercoin-Testnet": "PeercoinTestnet",
+  "Bitcoin": "Bitcoin",
+  "Bitcoin-Testnet":"BitcoinTestnet"
+};
 // Render Pages
-var RENDERERS = {"LOGIN": login.render_loginPage, "OVERVIEW": overview.render_overviewPage, "SEND": send.render_sendPage, "MANAGE":manage.render_managePage};
+var RENDERERS = {
+  "LOGIN": login.render_loginPage,
+  "OVERVIEW": overview.render_overviewPage,
+  "SEND": send.render_sendPage,
+  "MANAGE":manage.render_managePage
+};
 
 ////////////////////////////////////////////////////////
 ///////////         UTILITIES           ////////////////
 ////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////
-//////// Clear Session Storage ////////////////////
-///////////////////////////////////////////////////
+
 function createLogoutUser(){
+  // Creates EventListener to clear sessionStorage when Logout is clicked
   console.log("Creating LogoutUser");
   var logout = document.getElementById("logout-key");
   logout.addEventListener("click",function(event){
@@ -29,15 +37,20 @@ function createLogoutUser(){
 }
 
 function getMainDiv(){
+  // Returns the Main div element
   var main_div = document.getElementsByTagName("main")[0];
   return main_div;
 }
 
 function clearObjectHTML(htmlObject){
+  // Clears the htmlObject
   htmlObject.innerHTML = "";
 }
 
 function addOnClickToNavItems(){
+  // Create event listener for "click" on side nav options
+  // When a side-nav option is clicked, change the page and set new
+  // selection to active
   var items = document.getElementsByClassName("side-nav__item");
   var nav_items = Array.from(items);
   nav_items.map(function(val){
@@ -46,7 +59,13 @@ function addOnClickToNavItems(){
   });
 }
 
+
+////////////////////////////////////////////////////////
+///////////       PAGE FUNCTIONS        ////////////////
+////////////////////////////////////////////////////////
+
 function changePage(event){
+  // Changes page to event target
   var element = event.currentTarget;
   if (login.isLoggedIn()){
     render_page(element.innerText);
@@ -56,8 +75,8 @@ function changePage(event){
   }
 }
 
-
 function changeActive(name){
+  // Changes the class to Active ( Used for side-nav )
   console.log(name)
   var nav_active = "side-nav__item--active"
   var element = document.getElementById(name.toLowerCase() +"-nav")
@@ -71,12 +90,15 @@ function changeActive(name){
 }
 
 function changePageHash(event){
+  // Changes pageHash, renders new page, and changes side-nav Active
   var hash = event.newURL.split("#")[1]
   render_page(hash.toUpperCase())
   changeActive(hash.toLowerCase())
 }
 
 function unloadEventFlag(){
+  // Store unloadEventFlag when page refresh is encountered
+  // This is used for re-rendering the page on reload
   if (window.sessionStorage.getItem('unloadEventFlag') === null) {
     // flag the page as being unloading
     window.sessionStorage['unloadEventFlag']= new Date().getTime();
@@ -86,7 +108,9 @@ function unloadEventFlag(){
 ///////////////////////////////////////////////////////
 ////////////////     PAGE RENDERS   ///////////////////
 ///////////////////////////////////////////////////////
+
 function render_page(pageName){
+  // Takes in the pageName argument and renders the page
   clearObjectHTML(getMainDiv());
   if (RENDERERS[pageName]!=undefined){
     console.log("Current Page", RENDERERS[pageName]);
@@ -100,6 +124,7 @@ function render_page(pageName){
 }
 
 function render_not_implemented(name){
+  // Standard render page for page-names that do not have a Renderer
   var builder = new DocumentFragment();
 
   var not_implemented_div = document.createElement("div");
@@ -116,7 +141,7 @@ function render_not_implemented(name){
 }
 
 /////////////////////////////////////////////
-///////// set data from external api ///////
+///////// EXTERNAL API CALLS AND SET ///////
 ///////////////////////////////////////////
 
 function setProviderData(){
@@ -126,41 +151,66 @@ function setProviderData(){
   console.log(address)
   var User = new provider.Chainz('peercoin-testnet',address)
   window.setInterval(setBalance(User),15000)
+  setUnspent(User)
 }
 
 function setBalance(User){
-  console.log(User)
-  let state = User.getBalance()
+  // Will get the User's balance for the given Address
+  let state = User.getBalancePromise()
   var elem = document.getElementById("user-balance")
-  elem.innerHTML = state.balance
+  state.then(data => {
+    elem.innerHTML = data
+  })
 }
 
+function setUnspent(User){
+  // Will get the User's available unspent transactions
+  // This is used to created new transactions
+  let state = User.get
+  //var elem = document.getElementById("user-balance")
+  state.then(data => {
+    console.log(data)
+  })
+}
 
+///////////////////////////////////////////////////////////
+/////////////// EVENT LISTENERS ON LOAD //////////////////
+/////////////////////////////////////////////////////////
 
 window.addEventListener("hashchange",changePageHash,true)
 window.addEventListener("beforeunload", unloadEventFlag)
+
+
 ///////////////////////////////////////////////////////////
-/////////////// Run to Render Pages //////////////////////
+//////////////  RUN AT INITIAL PAGE LOAD  ////////////////
 /////////////////////////////////////////////////////////
 //addOnClickToNavItems()
+
 if ( !login.isLoggedIn() ) {
   // If user is not logged in then load the login page
   document.location.hash = "#login"
   render_page("LOGIN")
   
 }else if ( login.isLoggedIn() ) {
+    // Create the Event Listener for Logout
     createLogoutUser();
+    // Set page variable to current location
     var page = window.location.hash.replace("#","")
     if (page === "" || page.toUpperCase() === "LOGIN" ){
+      // if not on specific page or on login page, render overview
       document.location.hash = "#Overview"
     }else{
+      // if page is defined then load page 
       document.location.hash = "#" + page;
     }
     if (window.sessionStorage.hasOwnProperty('unloadEventFlag')){
+      // if the unloadEventFlag exists, that means a page refresh just happened
+      // re-render the page and remove unloadEventFlag from sessionStorage
       render_page(page.toUpperCase())
       changeActive(page)
       window.sessionStorage.removeItem('unloadEventFlag')
     }
+    // Here is where the External API data will be queried and loaded into div's
     setProviderData()
   
 }
