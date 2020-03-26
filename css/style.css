@@ -1,5 +1,6 @@
 :root {
   --color-font-primary: #C7DDDA;
+  --color-font-secondary: #F0D1C2;
   --color-primary: #1e413b;
   --color-primary-light: #89b4ac;
   --color-primary-dark: #1d413b;
@@ -71,6 +72,20 @@ body {
 
 .account {
   flex: 1; }
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px; }
+
+::-webkit-scrollbar-track {
+  border-radius: 10px; }
+
+::-webkit-scrollbar-thumb {
+  background: #1e413b;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0 3px 13px 1px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 3px 13px 1px; }
 
 .logo {
   height: 4.7rem;
@@ -320,21 +335,62 @@ input[type=button]:hover {
     font-size: 5em; }
 
 .overview {
+  background: rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: flex-start;
-  border-bottom: 1px solid var(--color-grey-light-2);
-  color: var(--color-font-primary); }
+  margin-bottom: .5em;
+  color: var(--color-font-primary);
+  margin-right: .5em;
+  border-radius: 15px; }
+  .overview__accountInformation {
+    height: 20%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    border-radius: 15px;
+    margin-top: 1em;
+    margin-bottom: 1em; }
+  .overview__transactionsTable {
+    height: 38%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    border-radius: 15px;
+    margin-top: 1em;
+    margin-bottom: 1em; }
+  .overview__assetsTable {
+    height: 38%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    border-radius: 15px;
+    margin-top: 1em;
+    margin-bottom: 1em; }
   .overview__heading {
     font-size: 2.25rem;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 0.5rem 3rem; }
+  .overview__leftCol {
+    padding: 1em;
+    width: 40%;
+    height: 100%; }
+  .overview__rightCol {
+    padding: 1em;
+    width: 60%;
+    height: 100%;
+    overflow-y: hidden; }
   .overview__recentTransactions {
     overflow-y: auto;
     height: 100%; }
-  .overview__payTo-title {
-    font-size: 2em; }
+  .overview__payToTitle {
+    font-size: 3em;
+    text-align: center;
+    margin: .5em; }
+  .overview__payToSubtitle {
+    font-size: 1.5em;
+    text-align: left; }
   .overview__payTo-entry {
     color: green; }
   .overview__stars {
@@ -353,8 +409,6 @@ input[type=button]:hover {
   .overview__identicon {
     width: 80px;
     height: 80px; }
-  .overview__identicon > canvas {
-    background: rgba(0, 0, 0, 0.1); }
   .overview__info {
     display: flex;
     font-weight: 300;
@@ -362,7 +416,7 @@ input[type=button]:hover {
     flex-direction: column;
     justify-content: space-evenly; }
   .overview__name {
-    font-size: 1.25rem; }
+    font-size: 1.4rem; }
   .overview__transID {
     display: flex;
     font-size: 1.25rem;

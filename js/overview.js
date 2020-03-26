@@ -43,21 +43,21 @@ function createTransactionDiv(transaction, transID){
     overview_info.className="overview__info"
     var overview_name_container = document.createElement("div")
     overview_name_container.className = "overview__info_data"
-    var overview_transID_container = document.createElement("div")
-    overview_transID_container.className ="overview__info_data"
+    // var overview_transID_container = document.createElement("div")
+    // overview_transID_container.className ="overview__info_data"
   
     var overview_name = document.createElement("h1")
     overview_name.className="overview__name"
-    var overview_transID = document.createElement("span")
-    overview_transID.className="overview__transID"
+    // var overview_transID = document.createElement("span")
+    // overview_transID.className="overview__transID"
   
     overview_name["textContent"] = transaction.name
-    overview_transID["textContent"] = transID
+    // overview_transID["textContent"] = transID
     
     overview_name_container.appendChild(overview_name)
-    overview_transID_container.appendChild(overview_transID)
+    // overview_transID_container.appendChild(overview_transID)
     overview_info.appendChild(overview_name_container)
-    overview_info.appendChild(overview_transID_container)
+    // overview_info.appendChild(overview_transID_container)
   
     //append the items to overview
     trans_div.appendChild(overview_identicon)
@@ -89,50 +89,77 @@ export function render_overviewPage(main_div){
   var overview_div = document.createElement("div")
   overview_div.className = "page";
 
+  // -- Left Col
+  // |
+  // -- Account information
+  // -- Assets table
+  // -- Recent Transactions
+  // |
+  // |
+  // -- Right column
+  // |
+  // -- Recently Created in Network 
+
   // Overview Title Div
-  var overviewTitle = document.createElement("h1");
-  overviewTitle.className = "page__payToTitle";
-  overviewTitle.innerHTML = "Overview";
-  overview_div.appendChild(overviewTitle);
+  // var overviewTitle = document.createElement("h1");
+  // overviewTitle.className = "page__payToTitle";
+  // overviewTitle.innerHTML = "Overview";
+  // overview_div.appendChild(overviewTitle);
 
-  var overview_parent = document.createElement("div")
-  overview_parent.className = "overview__parent"
-  overview_div.appendChild(overview_parent)
+  // Contains account information, asset table, recent transactions divs
+  var overview_leftCol = document.createElement("div")
+  overview_leftCol.className = "overview__leftCol"
+  overview_div.appendChild(overview_leftCol)
 
-    // This will have all the balance stuff
-    var overview_balance_div = document.createElement("div");
-    overview_balance_div.className = "page";
+    // Account information div
+    var account_information = document.createElement("div");
+    account_information.className = "overview__accountInformation";
+    overview_leftCol.appendChild(account_information)
+
       //Balance
-      var overview_balance_subtitle = document.createElement("h3")
-      overview_balance_subtitle.className = "page__payToSubtitle";
-      overview_balance_subtitle.innerHTML = "Balance";
-      overview_balance_div.appendChild(overview_balance_subtitle);
+      var overview_balance = document.createElement("p")
+      overview_balance.className = "overview__payToTitle";
+      // Add the network name later
+      overview_balance.innerHTML = "Balance: " + "<span id='user-balance'></span>";
+      account_information.appendChild(overview_balance);
     
-      // Loaded balance will go here
-      var overview_balance = document.createElement("h3")
-      overview_balance.id = "user-balance"
-      overview_balance.className = "overview__payToBalance";
-      overview_balance_div.appendChild(overview_balance);
+    ///////////////////////////////////////////////////////
 
-    overview_parent.appendChild(overview_balance_div)
+  // Assets Table
+  var overview_assetsTable_div = document.createElement("div")
+  overview_assetsTable_div.className = "overview__assetsTable"
+  overview_leftCol.appendChild(overview_assetsTable_div);
+    // STUFF GOES IN HERE LATER
+
+  // Recent Transactions Table
+  var overview_recentTransactions_div = document.createElement("div")
+  overview_recentTransactions_div.className = "overview__transactionsTable"
+  overview_leftCol.appendChild(overview_recentTransactions_div);
+    // STUFF GOES IN HERE LATER
+
+  
+
+  // Right column - Recent transactions and such
+  var overview_rightCol = document.createElement("div")
+  overview_rightCol.className = "overview__rightCol"
+  overview_div.appendChild(overview_rightCol)
+
+  var overview_recentTransactionSubtitle = document.createElement("h3")
+  overview_recentTransactionSubtitle.className = "overview__payToTitle";
+  overview_recentTransactionSubtitle.innerHTML = "RECENT DECKS";
+  overview_rightCol.appendChild(overview_recentTransactionSubtitle);
 
     // Recent Transactions Div
     var overview_recentTransactionDiv = document.createElement("div");
     overview_recentTransactionDiv.className = "overview__recentTransactions"
 
-      var overview_recentTransactionSubtitle = document.createElement("h3")
-      overview_recentTransactionSubtitle.className = "page__payToSubtitle";
-      overview_recentTransactionSubtitle.innerHTML = "Recent Decks:";
-      overview_recentTransactionDiv.appendChild(overview_recentTransactionSubtitle);
+    var overview_recentTransactionTableDiv = document.createElement("div");
+    loadTransactionRequest(25,1, overview_recentTransactionTableDiv);
 
-      var overview_recentTransactionTableDiv = document.createElement("div");
-      loadTransactionRequest(25,1, overview_recentTransactionTableDiv);
-
-
-      overview_recentTransactionDiv.appendChild(overview_recentTransactionTableDiv);
-
+    overview_recentTransactionDiv.appendChild(overview_recentTransactionTableDiv);
       
-    overview_div.appendChild(overview_recentTransactionDiv);
+    overview_rightCol.appendChild(overview_recentTransactionDiv);
+
   //////////////////////////
   // Send it all back
   //////////////////////////

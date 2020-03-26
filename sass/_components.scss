@@ -1,3 +1,19 @@
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  // background-color: rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e413b;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0,0,0,.12) 0 3px 13px 1px;
+  box-shadow: rgba(0,0,0,.12) 0 3px 13px 1px;
+}
+
 /////////////////////////////////////
 //LOGO
 
@@ -369,11 +385,41 @@ input[type=button]:hover {
 }
 
 .overview {
+  background: rgba(0, 0, 0, 0.1);
   display: flex;
   //   align-items: center;
   justify-content: flex-start;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  margin-bottom: .5em;
   color: var(--color-font-primary);
+  margin-right: .5em;
+  border-radius: 15px;
+  &__accountInformation {
+    height: 20%;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    border-radius: 15px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  &__transactionsTable {
+    height: 38%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    border-radius: 15px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  &__assetsTable {
+    height: 38%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    border-radius: 15px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
   &__heading {
     font-size: 2.25rem;
     font-weight: 300;
@@ -381,12 +427,30 @@ input[type=button]:hover {
     letter-spacing: 1px;
     padding: 0.5rem 3rem;
   }
+  &__leftCol {
+    padding: 1em;
+    width: 40%;
+    height: 100%;
+  }
+  &__rightCol {
+    padding: 1em;
+    width: 60%;
+    height: 100%;
+    overflow-y: hidden;
+  }
   &__recentTransactions {
     overflow-y: auto;
     height: 100%;
   }
-  &__payTo-title {
-    font-size: 2em;
+  &__payToTitle {
+    font-size: 3em;
+    text-align: center;
+    margin: .5em;
+    // background: white;
+  }
+  &__payToSubtitle{
+    font-size: 1.5em;
+    text-align: left;
   }
   &__payTo-entry {
     color: green;
@@ -415,9 +479,9 @@ input[type=button]:hover {
     height:80px;
   }
 
-  &__identicon > canvas{
-    background:rgba(0, 0, 0, 0.1);
-  }
+  // &__identicon > canvas{
+  //    ;
+  // }
 
   &__info {
     display: flex;
@@ -428,7 +492,7 @@ input[type=button]:hover {
   }
 
   &__name {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
   }
 
   &__transID {

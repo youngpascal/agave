@@ -30,6 +30,7 @@ export function render_loginPage(main_div){
     // Network Dropbox
     var networkSelect = document.createElement("select")
     networkSelect.className += "login_form__select"
+    networkSelect.id = "network-select"
     networkSelect.innerHTML += "Select Network"
     login_div.appendChild(networkSelect)
 
@@ -65,9 +66,12 @@ export function render_loginPage(main_div){
       var safety_code = document.getElementById("safety-code").value
       var mnemonic = document.getElementById("mnemonic-entry").value
       var address = getAddress(mnemonic,"peercoinTestnet")
-      var lockedKey = encryptData( safety_code, getWIF(mnemonic))
+      var lockedKey = encryptData( safety_code, getWIF(mnemonic)) 
+      var network = document.getElementById("network-select").value
       sessionStorage.setItem("address",address)
       sessionStorage.setItem("lockedKey",lockedKey)
+      sessionStorage.setItem("network",network)
+      console.log(sessionStorage.getItem("network",network))
       location.reload()
     })
   
@@ -103,6 +107,7 @@ export function render_loginPage(main_div){
 export var isLoggedIn = function() {
     var address = sessionStorage.getItem('address'); 
     var lockedKey = sessionStorage.getItem('lockedKey');
+
     if (address && lockedKey == lockedKey){
         console.log(true)
         // Add the address

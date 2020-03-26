@@ -4,14 +4,16 @@ import * as send from './send.js';
 import * as transactions from './transactions.js';
 import * as manage from './manage.js';
 import * as provider from "./providers/chainz.js"
+import * as networks from "./networks.js"
 
 // Network Arrays
 var Networks = {
-  "Peercoin": "Peercoin",
-  "Peercoin-Testnet": "PeercoinTestnet",
-  "Bitcoin": "Bitcoin",
-  "Bitcoin-Testnet":"BitcoinTestnet"
+  "Peercoin": networks.peercoin,
+  "Peercoin Testnet": networks.peercoinTestnet,
+  "Bitcoin Cash": networks.bitcoinCash,
+  "Bitcoin Cash Testnet":networks.bitcoinCashTestnet
 };
+
 // Render Pages
 var RENDERERS = {
   "LOGIN": login.render_loginPage,
@@ -23,6 +25,7 @@ var RENDERERS = {
 ////////////////////////////////////////////////////////
 ///////////         UTILITIES           ////////////////
 ////////////////////////////////////////////////////////
+
 
 
 function createLogoutUser(){
@@ -157,8 +160,9 @@ function setBalance(User){
   // Will get the User's balance for the given Address
   let state = User.getBalancePromise();
   var elem = document.getElementById("user-balance");
+  var net = Networks[sessionStorage.getItem("network")].shortName
   state.then(data => {
-    elem.innerHTML = data
+    elem.innerHTML = data + " " + net
   })
 }
 
