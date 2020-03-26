@@ -5,7 +5,6 @@ import * as transactions from './transactions.js';
 import * as manage from './manage.js';
 import * as provider from "./providers/chainz.js"
 
-
 // Network Arrays
 var Networks = {
   "Peercoin": "Peercoin",
@@ -156,8 +155,8 @@ function setProviderData(){
 
 function setBalance(User){
   // Will get the User's balance for the given Address
-  let state = User.getBalancePromise()
-  var elem = document.getElementById("user-balance")
+  let state = User.getBalancePromise();
+  var elem = document.getElementById("user-balance");
   state.then(data => {
     elem.innerHTML = data
   })

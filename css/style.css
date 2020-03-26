@@ -1,4 +1,5 @@
 :root {
+  --color-font-primary: #C7DDDA;
   --color-primary: #1e413b;
   --color-primary-light: #89b4ac;
   --color-primary-dark: #1d413b;
@@ -31,39 +32,42 @@ body {
   line-height: 1.6;
   padding: 3.8vh 20vh;
   color: var(--color-grey-dark-2);
-  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: radial-gradient(#072F26, #1D4F44), url(../img/topography.svg);
+  background-blend-mode: screen;
+  background-repeat: unset;
   min-height: 100vh; }
-
-.container {
-  background-color: var(--color-grey-light-2);
-  box-shadow: var(--shadow-dark); }
 
 .header {
   font-size: 1.4rem;
   height: 8vh;
   min-height: 8rem;
-  background: linear-gradient(250deg, #2e685e, #194354);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center; }
 
 .content {
-  display: flex; }
+  display: flex;
+  background-image: linear-gradient(180deg, transparent, #1D4F44), linear-gradient(180deg, transparent, #1D4F44);
+  background-blend-mode: soft-light;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px; }
 
 .sidebar {
-  background-color: var(--color-grey-dark-1);
+  background-color: rgba(255, 255, 255, 0.1);
   flex: 0 0 18%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  border-bottom-left-radius: 30px; }
 
 .main-view {
-  background-color: #fff;
-  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.1);
   height: 84vh;
-  flex: 2.5; }
+  flex: 2.5;
+  border-bottom-right-radius: 30px; }
 
 .account {
   flex: 1; }
@@ -124,13 +128,14 @@ body {
   .user-nav__user {
     visibility: hidden; }
   .user-nav__icon-box {
-    position: relative; }
+    position: relative;
+    border-top-right-radius: 30px; }
   .user-nav__icon {
     height: 2.25rem;
     width: 2.25rem;
     fill: #ffffff; }
   .user-nav__user-name {
-    color: #fff; }
+    color: var(--color-font-primary); }
   .user-nav__identicon {
     height: 50px;
     width: 100px; }
@@ -162,7 +167,7 @@ body {
   .side-nav__item:active::before {
     background-color: var(--color-primary-light); }
   .side-nav__link:link, .side-nav__link:visited {
-    color: var(--color-grey-light-1);
+    color: var(--color-font-primary);
     text-decoration: none;
     text-transform: uppercase;
     display: block;
@@ -281,6 +286,8 @@ input[type=button]:hover {
 
 .page {
   width: 100%;
+  height: 100%;
+  color: var(--color-font-primary);
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start; }
@@ -288,12 +295,13 @@ input[type=button]:hover {
     font-size: 2em; }
   .page__recipients {
     width: 100%;
-    height: 80vh; }
+    height: 80%;
+    overflow-y: scroll; }
   .page__tools {
     width: 100%;
-    height: 20vh; }
+    height: 20%; }
   .page__transactions {
-    height: 80vh; }
+    height: 100%; }
   .page__transactionCard {
     border-radius: 1px black; }
   .page__tools {
@@ -302,21 +310,33 @@ input[type=button]:hover {
   .page__tools-parent {
     width: 100%;
     height: 20%; }
-  .page__payTo-title {
-    font-size: 2em; }
-  .page__payTo-entry {
-    color: green; }
+  .page__addRecipients-button {
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    color: var(--color-blue);
+    font-size: 5em; }
 
 .overview {
   display: flex;
   justify-content: flex-start;
-  border-bottom: 1px solid var(--color-grey-light-2); }
+  border-bottom: 1px solid var(--color-grey-light-2);
+  color: var(--color-font-primary); }
   .overview__heading {
     font-size: 2.25rem;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 0.5rem 3rem; }
+  .overview__recentTransactions {
+    overflow-y: auto;
+    height: 100%; }
+  .overview__payTo-title {
+    font-size: 2em; }
+  .overview__payTo-entry {
+    color: green; }
   .overview__stars {
     margin-right: auto;
     display: flex; }
@@ -334,7 +354,7 @@ input[type=button]:hover {
     width: 80px;
     height: 80px; }
   .overview__identicon > canvas {
-    background: rgba(0, 0, 0, 0.4); }
+    background: rgba(0, 0, 0, 0.1); }
   .overview__info {
     display: flex;
     font-weight: 300;
@@ -348,7 +368,6 @@ input[type=button]:hover {
     font-size: 1.25rem;
     justify-self: flex-start; }
   .overview__identicon {
-    background-color: var(--color-primary);
     color: #fff;
     align-self: stretch;
     padding: .3rem;

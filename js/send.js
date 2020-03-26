@@ -108,9 +108,9 @@ function createSendRecipientForm() {
   
         // Add New Recipient
         var addButton = document.createElement("button")
-        addButton.className = "button"
+        addButton.className = "button page__addRecipients-button page__minus-button"
         addButton.setValue += "Add Recipient"
-        addButton.innerHTML = "Add Recipient"
+        addButton.innerHTML = "+"
         addButton.addEventListener("click", function(event){
             send__recipients.appendChild(createSendRecipientForm());
         })

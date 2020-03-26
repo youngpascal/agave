@@ -111,14 +111,14 @@ export function render_overviewPage(main_div){
       // Loaded balance will go here
       var overview_balance = document.createElement("h3")
       overview_balance.id = "user-balance"
-      overview_balance.className = "page__payToBalance";
+      overview_balance.className = "overview__payToBalance";
       overview_balance_div.appendChild(overview_balance);
 
     overview_parent.appendChild(overview_balance_div)
 
     // Recent Transactions Div
     var overview_recentTransactionDiv = document.createElement("div");
-    overview_recentTransactionDiv.className = "page__recentTranactions"
+    overview_recentTransactionDiv.className = "overview__recentTransactions"
 
       var overview_recentTransactionSubtitle = document.createElement("h3")
       overview_recentTransactionSubtitle.className = "page__payToSubtitle";

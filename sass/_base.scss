@@ -1,5 +1,6 @@
 //Colors as Variables
 :root {
+  --color-font-primary: #C7DDDA;
   --color-primary: #1e413b;
   --color-primary-light: #89b4ac;
   --color-primary-dark: #1d413b;
@@ -41,13 +42,9 @@ body {
   line-height: 1.6;
   padding: 3.8vh 20vh;
   color: var(--color-grey-dark-2);
-  background-image: linear-gradient(
-    to right bottom,
-    var(--color-primary-light),
-    var(--color-primary-dark)
-  );
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: radial-gradient(#072F26, #1D4F44), url(../img/topography.svg);
+  background-blend-mode: screen;
+  background-repeat: unset;
   min-height:100vh;
   //min-height: 100vh;
 }
