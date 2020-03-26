@@ -1,14 +1,53 @@
+import * as page from "./page.js"
+
+class send extends page.page_renderer {
+    constructor(){
+      super();
+    }
+    
+    preRender(){
+      console.log("Pre Render")
+      this.registerRenderBlockingAjax("https://api.agavewallet.com/v1/assets",this.ajaxCallback.bind(this));
+      //draw a loading screen or something
+    }
+    
+    render(div){
+      console.log("Render");
+      if (typeof div === undefined){
+        div = page.utils.getMainDiv()
+      }
+      this.div = div
+      this.render_sendPage()
+    }
+    
+    postRender(){
+    }
+    
+    ajaxCallback(args,responseText){
+      // DON'T REMOVE THIS OR BE SAD
+      //this.Transactions = {...this.Transactions, ...JSON.parse(responseText)}
+      this.finishedAjax++;
+      //
+
+    }
+    renderTransactions(){
+       console.log("Render Callback");
+        
+    }
+
+
+
 // Send these transactions
 // Prepared blockchain transaction
 
 // Remove this transaction
-function removeRecipient() {
+removeRecipient() {
     var recipient = (this.parentNode)
     recipient.remove();
 }
 
 // Remove All Recipients Button
-function removeAllRecipients() {
+removeAllRecipients() {
 
     // Count how many extra recipients there are 
     var recipients = document.getElementsByClassName("page__recipientCard");
@@ -23,7 +62,7 @@ function removeAllRecipients() {
 }
 
 // Send Recipients Chunk
-function createSendRecipientForm() {
+createSendRecipientForm() {
     var send_recipientCard = document.createElement("div");
     send_recipientCard.className = "page__recipientCard";
 
@@ -57,13 +96,13 @@ function createSendRecipientForm() {
     removeButton.className = "login_form__button btn btn--white btn--animated"
     removeButton.type = "button"
     removeButton.innerHTML = "Remove Recipient"
-    removeButton.addEventListener("click", removeRecipient);
+    removeButton.addEventListener("click", this.removeRecipient);
     send_recipientCard.appendChild(removeButton);
 
     return send_recipientCard
   }
   
-  export function render_sendPage(main_div){
+render_sendPage(){
     var builder = new DocumentFragment();
 
     // Structure
@@ -83,13 +122,13 @@ function createSendRecipientForm() {
     // Recipients parent div container
     var send_div = document.createElement("div")
     send_div.className="page"
-  
+
     var send__recipients = document.createElement("div")
     send__recipients.className="page__recipients"
     send_div.appendChild(send__recipients)
 
     // Make one recipients by default
-    send__recipients.appendChild(createSendRecipientForm());
+    send__recipients.appendChild(this.createSendRecipientForm());
 
     ////////////////////////////////////////////////////////
     // Constants Toolbar
@@ -101,18 +140,20 @@ function createSendRecipientForm() {
         clearButton.className = "button"
         clearButton.setValue += "Clear All"
         clearButton.innerHTML = "Clear All"
+        var removeAllRecipients = this.removeAllRecipients.bind(this)
         clearButton.addEventListener("click", function(event){
             removeAllRecipients();
         })
         send_tools_div.appendChild(clearButton)
-  
+
         // Add New Recipient
         var addButton = document.createElement("button")
         addButton.className = "button"
         addButton.setValue += "Add Recipient"
         addButton.innerHTML = "Add Recipient"
+        var addButton_createRecipientForm = this.createSendRecipientForm.bind(this)
         addButton.addEventListener("click", function(event){
-            send__recipients.appendChild(createSendRecipientForm());
+            send__recipients.appendChild(addButton_createRecipientForm());
         })
         send_tools_div.appendChild(addButton)
         
@@ -129,7 +170,10 @@ function createSendRecipientForm() {
 
     send_div.appendChild(send_tools_div)
     builder.appendChild(send_div)
-    main_div.appendChild(builder)
-    ////////////////////////////////////////////////////////
-  
+    this.div.appendChild(builder)
+////////////////////////////////////////////////////////
+
   }
+}
+
+export { send}

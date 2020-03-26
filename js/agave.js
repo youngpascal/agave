@@ -5,7 +5,6 @@ import * as transactions from './transactions.js';
 import * as manage from './manage.js';
 import * as provider from "./providers/chainz.js"
 
-
 // Network Arrays
 var Networks = {
   "Peercoin": "Peercoin",
@@ -16,15 +15,14 @@ var Networks = {
 // Render Pages
 var RENDERERS = {
   "LOGIN": login.render_loginPage,
-  "OVERVIEW": overview.render_overviewPage,
-  "SEND": send.render_sendPage,
+  "OVERVIEW": new overview.overview(),
+  "SEND": new send.send(),
   "MANAGE":manage.render_managePage
 };
 
 ////////////////////////////////////////////////////////
 ///////////         UTILITIES           ////////////////
 ////////////////////////////////////////////////////////
-
 
 function createLogoutUser(){
   // Creates EventListener to clear sessionStorage when Logout is clicked
@@ -34,12 +32,6 @@ function createLogoutUser(){
       sessionStorage.clear();
       location.reload();
   });
-}
-
-function getMainDiv(){
-  // Returns the Main div element
-  var main_div = document.getElementsByTagName("main")[0];
-  return main_div;
 }
 
 function clearObjectHTML(htmlObject){
@@ -58,7 +50,6 @@ function addOnClickToNavItems(){
     console.log("Added OnClick");
   });
 }
-
 
 ////////////////////////////////////////////////////////
 ///////////       PAGE FUNCTIONS        ////////////////
@@ -105,6 +96,12 @@ function unloadEventFlag(){
   }
 }
 
+function getMainDiv(){
+  // Returns the Main div element
+  var main_div = document.getElementsByTagName("main")[0];
+  return main_div;
+}
+
 ///////////////////////////////////////////////////////
 ////////////////     PAGE RENDERS   ///////////////////
 ///////////////////////////////////////////////////////
@@ -116,7 +113,7 @@ function render_page(pageName){
     console.log("Current Page", RENDERERS[pageName]);
     var main_div = getMainDiv();
     clearObjectHTML(main_div);
-    RENDERERS[pageName](main_div);
+    RENDERERS[pageName].renderPage(main_div);
   }
   else{
     render_not_implemented(pageName);
@@ -143,7 +140,7 @@ function render_not_implemented(name){
 /////////////////////////////////////////////
 ///////// EXTERNAL API CALLS AND SET ///////
 ///////////////////////////////////////////
-
+/*
 function setProviderData(){
   // TODO: network needs to be set in session storage!!
   // var network = sessionStorage.getItem('network')
@@ -152,8 +149,8 @@ function setProviderData(){
   var User = new provider.Chainz('peercoin-testnet',address)
   window.setInterval(setBalance(User),15000)
   setUnspent(User)
-}
-
+}*/
+/*
 function setBalance(User){
   // Will get the User's balance for the given Address
   let state = User.getBalancePromise()
@@ -161,7 +158,7 @@ function setBalance(User){
   state.then(data => {
     elem.innerHTML = data
   })
-}
+}*/
 
 function setUnspent(User){
   // Will get the User's available unspent transactions
@@ -211,6 +208,6 @@ if ( !login.isLoggedIn() ) {
       window.sessionStorage.removeItem('unloadEventFlag')
     }
     // Here is where the External API data will be queried and loaded into div's
-    setProviderData()
+    //setProviderData()
   
 }
